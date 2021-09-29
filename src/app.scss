@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	min-height: 100vh;
+	margin: 0;
+}
+
+.container {
+  padding: 0 15px;
+  display: block;
+  width: 100%;
+  margin: auto;
+}
+  
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+

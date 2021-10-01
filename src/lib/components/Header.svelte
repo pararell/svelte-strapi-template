@@ -25,8 +25,8 @@
 				{/if}
 				{#if pages.length}
 					{#each pages as dPage}
-						<li class="nav-li mr-4" class:active={$page.path === dPage.slug}>
-							<a class="nav-link" href=/{dPage.slug}>{dPage.title}</a>
+						<li class="nav-li mr-4" class:active={$page.path === '/' + dPage.url}>
+							<a class="nav-link" href=/{dPage.url}>{dPage.title}</a>
 						</li>
 					{/each}
 				{/if}
@@ -58,6 +58,12 @@
 
 		&-li {
 			list-style: none;
+
+			&.active {
+				.nav-link {
+					font-weight: bold;
+				}
+			}
 		}
 
 		&-link {

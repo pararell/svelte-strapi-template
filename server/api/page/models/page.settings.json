@@ -20,6 +20,11 @@
     },
     "description": {
       "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }

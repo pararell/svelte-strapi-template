@@ -3,7 +3,7 @@
 
 	export const load = async ({ page }) => {
     const pathPage = page.path.split('/')[1];
-		const response = await get(`contents?slug=` + (pathPage + '-' + page.params.page));
+		const response = await get(`contents?slug=` + (pathPage + '-' + page.params.subpage));
 
 		if (response && response.length) {
 			const result = response[0];
@@ -13,7 +13,7 @@
 					content: result.content,
 					form: result.form ? Object.entries(result.form.fields) : null,
           formAction: result.form ? result.form.action : null,
-					pageSlug: page.params.page,
+					pageSlug: page.params.subpage,
 					empty: '',
           success: false
 				},
@@ -24,7 +24,7 @@
 		return {
 			props: {
 				empty: 'This page is empty',
-				pageSlug: page.params.page,
+				pageSlug: page.params.subpage,
 				form: null,
         success: false
 			}
@@ -46,7 +46,7 @@
 	export let empty = null;
   export let success = false;
   export let formLoading = false;
-	$: title = pages.value?.find((p) => p.slug === pageSlug)?.title || pageSlug;
+	$: title = pages.value?.find(p => p.slug === pageSlug)?.title || pageSlug;
 
 	async function submitForm(event) {
 		const data = {

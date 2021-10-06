@@ -5,7 +5,7 @@
 	import { API_URL } from '../constants';
 	export let user;
 	export let pages = [];
-	$: home = pages.find(page => page.slug === 'home') || {title: 'home'}
+	$: home = pages.find(p => p.slug === 'home') || {title: 'home'}
 
 	const dispatch = createEventDispatcher();
 	const handleLogout = () => {
@@ -33,7 +33,7 @@
 					</li>
 				{/if}
 				{#if pages.length}
-					{#each pages.filter(page => page.slug !== 'home') as dPage}
+					{#each pages.filter(p => p.slug !== 'home') as dPage}
 						<li class="nav-li mr-4 desktop" class:active={$page.path === '/' + dPage.url}>
 							<a class="nav-link" href="/{dPage.url}">{dPage.title}</a>
 						</li>
@@ -45,7 +45,7 @@
 				{#if pages.length}
 					<li class="nav-li mobile">
 						<DropdownShell let:toggle>
-							<a
+							<a href="{'#'}"
 								class="nav-link mr-4  ml-4 cursor-pointer flex items-center mt-0.5"
 								on:click={toggle}
 							>
@@ -53,7 +53,7 @@
 							</a>
 							<Dropdown right>
 								<div class="px-4 py-2">
-									{#each pages.filter(page => page.slug !== 'home') as dPage}
+									{#each pages.filter(p => p.slug !== 'home') as dPage}
 										<li class="nav-li mr-4" class:active={$page.path === '/' + dPage.url}>
 											<a class="nav-link" href="/{dPage.url}">{dPage.title}</a>
 										</li>

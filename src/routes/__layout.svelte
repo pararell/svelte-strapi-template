@@ -1,7 +1,7 @@
 <script context="module">
 	import { get } from '$lib/api';
 
-	export const load = async ({ fetch, page }) => {
+	export const load = async ({ page }) => {
     const responsePages = await get(`pages`);
 		const responseConfig = await get(`config`);
 

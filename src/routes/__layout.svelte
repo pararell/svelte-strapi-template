@@ -2,13 +2,16 @@
 	import { get } from '$lib/api';
 
 	export const load = async ({ fetch, page }) => {
-    const response = await get(`pages`);
+    const responsePages = await get(`pages`);
+		const responseConfig = await get(`config`);
 
-		if (response) {
-      pages.next(response)
+		if (responsePages && responseConfig) {
+      pages.next(responsePages)
+			config.next(responseConfig)
+
 			return {
 				props: {
-					allPages: response
+					allPages: responsePages
 				},
 				maxage: 0
 			};
@@ -23,7 +26,7 @@
 <script>
 	import { onMount } from 'svelte';
   import { Loading } from 'attractions';
-  import { autoLogin, user, logout, pages } from '$lib/store';
+  import { autoLogin, config, user, logout, pages } from '$lib/store';
 	import "../app.scss";
   import Header from '../lib/components/Header.svelte';
   export let loaded = false;

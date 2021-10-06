@@ -32,7 +32,8 @@
 	<title>Blogs</title>
 </svelte:head>
 
-{#if blogs}
+<div class="container max-w-6xl">
+	{#if blogs}
 	{#each blogs.filter(blog => category ? blog.categories.includes(category) : true) as blog (blog.id)}
 		<a class="card" rel="prefetch" href="/blogs/{blog.slug}">
 			<div class="card-left">
@@ -56,6 +57,8 @@
 		</a>
 	{/each}
 {/if}
+</div>
+
 
 <style>
 	.card {

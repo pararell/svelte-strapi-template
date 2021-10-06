@@ -7,7 +7,8 @@
 
     return {
         props: {
-          blog: response[0]
+          blog: response[0],
+					page
         },
         maxage: 0
       };
@@ -15,7 +16,8 @@
 
     return {
       props: {
-        blog: null
+        blog: null,
+				page
       }
     };
   };
@@ -24,14 +26,45 @@
 <script>
 	import { get } from '$lib/api';
   import marked from 'marked';
+	import { setDisqus, resetDisqus } from '$lib/utils';
+	import { config, disqusLoaded } from '$lib/store';
+	import { filter, map, mergeMap, take } from 'rxjs';
+	import { onMount } from 'svelte';
 	export let blog;
+	export let page;
+
+	onMount(() => {
+		config
+			.pipe(
+				mergeMap((config) =>
+					disqusLoaded.pipe(
+						filter((disqusLoaded) => !disqusLoaded),
+						map(() => config)
+					)
+				),
+				filter((config) => config && config.disqusSrc),
+				take(1)
+			)
+			.subscribe((config) => {
+				setDisqus(config)
+					.pipe(take(1))
+					.subscribe(() => {
+						disqusLoaded.next(true);
+					});
+			});
+
+		disqusLoaded.pipe(filter(Boolean), take(1)).subscribe(() => {
+			resetDisqus(page);
+		});
+	});
+
 </script>
 
 <svelte:head>
 	<title>{blog?.Title}</title>
 </svelte:head>
 
-<div class="container">
+<div class="container max-w-6xl">
   {#if blog}
 	<h1 class="text-center text-4xl mt-8 pb-4">{blog.Title}</h1>
 
@@ -41,9 +74,10 @@
 
 	<span class="date">{new Date(blog.created_at).toLocaleDateString()}</span>
 
+	<div id="disqus_thread" />
 {/if}
 
-<div id="disqus_thread" />
+
 </div>
 
 <style>

@@ -6,7 +6,7 @@ const c = [
 	() => import("../../../src/routes/blogs/[blog].svelte"),
 	() => import("../../../src/routes/auth/register.svelte"),
 	() => import("../../../src/routes/auth/login.svelte"),
-	() => import("../../../src/routes/[page]/[page].svelte"),
+	() => import("../../../src/routes/[page]/[subpage].svelte"),
 	() => import("../../../src/routes/[page].svelte")
 ];
 
@@ -28,8 +28,8 @@ export const routes = [
 	// src/routes/auth/login.svelte
 	[/^\/auth\/login\/?$/, [c[0], c[6]], [c[1]]],
 
-	// src/routes/[page]/[page].svelte
-	[/^\/([^/]+?)\/([^/]+?)\/?$/, [c[0], c[7]], [c[1]], (m) => ({ page: d(m[1]), page: d(m[2])})],
+	// src/routes/[page]/[subpage].svelte
+	[/^\/([^/]+?)\/([^/]+?)\/?$/, [c[0], c[7]], [c[1]], (m) => ({ page: d(m[1]), subpage: d(m[2])})],
 
 	// src/routes/[page].svelte
 	[/^\/([^/]+?)\/?$/, [c[0], c[8]], [c[1]], (m) => ({ page: d(m[1])})]

@@ -24,14 +24,6 @@
 			<a class="nav-link nav-logo font-semibold" href="/">{home.title}</a>
 			{/if}
 			<ul class="nav-list">
-				{#if !user}
-					<li class="nav-li mr-4" class:active={$page.path === '/auth/register'}>
-						<a class="nav-link" href="/auth/register">Register</a>
-					</li>
-					<li class="nav-li mr-4" class:active={$page.path === '/auth/login'}>
-						<a class="nav-link" href="/auth/login">Login</a>
-					</li>
-				{/if}
 				{#if pages.length}
 					{#each pages.filter(p => p.slug !== 'home') as dPage}
 						<li class="nav-li mr-4 desktop" class:active={$page.path === '/' + dPage.url}>
@@ -39,6 +31,14 @@
 						</li>
 					{/each}
 				{/if}
+				{#if !user}
+				<li class="nav-li mr-4" class:active={$page.path === '/auth/register'}>
+					<a class="nav-link" href="/auth/register">Register</a>
+				</li>
+				<li class="nav-li mr-4" class:active={$page.path === '/auth/login'}>
+					<a class="nav-link" href="/auth/login">Login</a>
+				</li>
+			{/if}
 				{#if user}
 					<li class="nav-li"><a class="nav-link" href="/" on:click={handleLogout}>Logout</a></li>
 				{/if}

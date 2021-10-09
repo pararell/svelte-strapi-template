@@ -6,7 +6,7 @@
 	export let user;
 	export let pages = [];
 	$: home = pages.find(p => p.slug === 'home') || {title: 'home'}
-	$: pagesInMenu  = pages.filter(p => p.slug !== 'home').sort((a,b) => b.position - a.position)
+	$: pagesInMenu  = pages.filter(p => p.slug !== 'home').sort((a,b) => a.position - b.position)
 
 	const dispatch = createEventDispatcher();
 	const handleLogout = () => {

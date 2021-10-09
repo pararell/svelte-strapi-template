@@ -6,6 +6,7 @@
 	export let user;
 	export let pages = [];
 	$: home = pages.find(p => p.slug === 'home') || {title: 'home'}
+	$: pagesInMenu  = pages.filter(p => p.slug !== 'home').sort((a,b) => b.position - a.position)
 
 	const dispatch = createEventDispatcher();
 	const handleLogout = () => {
@@ -25,7 +26,7 @@
 			{/if}
 			<ul class="nav-list">
 				{#if pages.length}
-					{#each pages.filter(p => p.slug !== 'home') as dPage}
+					{#each pagesInMenu as dPage}
 						<li class="nav-li mr-4 desktop" class:active={$page.path === '/' + dPage.url}>
 							<a class="nav-link" href="/{dPage.url}">{dPage.title}</a>
 						</li>
@@ -53,7 +54,7 @@
 							</a>
 							<Dropdown right>
 								<div class="px-4 py-2">
-									{#each pages.filter(p => p.slug !== 'home') as dPage}
+									{#each pagesInMenu as dPage}
 										<li class="nav-li mr-4" class:active={$page.path === '/' + dPage.url}>
 											<a class="nav-link" href="/{dPage.url}">{dPage.title}</a>
 										</li>

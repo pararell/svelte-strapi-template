@@ -17,8 +17,7 @@
 					pageHost: page.host,
 					empty: '',
           success: false
-				},
-				maxage: 0
+				}
 			};
 		}
 

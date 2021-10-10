@@ -14635,9 +14635,9 @@ function init(settings = default_settings) {
     amp: false,
     dev: false,
     entry: {
-      file: assets + "/_app/start-07d26ec8.js",
+      file: assets + "/_app/start-0eebc6e0.js",
       css: [assets + "/_app/assets/start-464e9d0a.css", assets + "/_app/assets/vendor-15e614f1.css"],
-      js: [assets + "/_app/start-07d26ec8.js", assets + "/_app/chunks/vendor-5e6fc18f.js", assets + "/_app/chunks/singletons-12a22614.js"]
+      js: [assets + "/_app/start-0eebc6e0.js", assets + "/_app/chunks/vendor-262dbd3a.js", assets + "/_app/chunks/singletons-12a22614.js"]
     },
     fetched: void 0,
     floc: false,
@@ -14667,7 +14667,7 @@ function init(settings = default_settings) {
 var d = (s2) => s2.replace(/%23/g, "#").replace(/%3[Bb]/g, ";").replace(/%2[Cc]/g, ",").replace(/%2[Ff]/g, "/").replace(/%3[Ff]/g, "?").replace(/%3[Aa]/g, ":").replace(/%40/g, "@").replace(/%26/g, "&").replace(/%3[Dd]/g, "=").replace(/%2[Bb]/g, "+").replace(/%24/g, "$");
 var empty = () => ({});
 var manifest = {
-  assets: [{ "file": "favicon.png", "size": 11146, "type": "image/png" }, { "file": "menu.svg", "size": 232, "type": "image/svg+xml" }],
+  assets: [{ "file": "favicon.png", "size": 11146, "type": "image/png" }],
   layout: "src/routes/__layout.svelte",
   error: ".svelte-kit/build/components/error.svelte",
   routes: [
@@ -14708,16 +14708,16 @@ var manifest = {
     },
     {
       type: "page",
-      pattern: /^\/([^/]+?)\/([^/]+?)\/?$/,
-      params: (m) => ({ page: d(m[1]), subpage: d(m[2]) }),
-      a: ["src/routes/__layout.svelte", "src/routes/[page]/[subpage].svelte"],
+      pattern: /^\/([^/]+?)\/?$/,
+      params: (m) => ({ page: d(m[1]) }),
+      a: ["src/routes/__layout.svelte", "src/routes/[page]/index.svelte"],
       b: [".svelte-kit/build/components/error.svelte"]
     },
     {
       type: "page",
-      pattern: /^\/([^/]+?)\/?$/,
-      params: (m) => ({ page: d(m[1]) }),
-      a: ["src/routes/__layout.svelte", "src/routes/[page].svelte"],
+      pattern: /^\/([^/]+?)\/([^/]+?)\/?$/,
+      params: (m) => ({ page: d(m[1]), subpage: d(m[2]) }),
+      a: ["src/routes/__layout.svelte", "src/routes/[page]/[subpage].svelte"],
       b: [".svelte-kit/build/components/error.svelte"]
     }
   ]
@@ -14736,10 +14736,10 @@ var module_lookup = {
     return error;
   }),
   "src/routes/index.svelte": () => Promise.resolve().then(function() {
-    return index$1;
+    return index$2;
   }),
   "src/routes/blogs/index.svelte": () => Promise.resolve().then(function() {
-    return index;
+    return index$1;
   }),
   "src/routes/blogs/[blog].svelte": () => Promise.resolve().then(function() {
     return _blog_;
@@ -14750,14 +14750,14 @@ var module_lookup = {
   "src/routes/auth/login.svelte": () => Promise.resolve().then(function() {
     return login;
   }),
+  "src/routes/[page]/index.svelte": () => Promise.resolve().then(function() {
+    return index;
+  }),
   "src/routes/[page]/[subpage].svelte": () => Promise.resolve().then(function() {
     return _subpage_;
-  }),
-  "src/routes/[page].svelte": () => Promise.resolve().then(function() {
-    return _page_;
   })
 };
-var metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-91ba00a9.js", "css": ["assets/pages/__layout.svelte-ff9fa9da.css", "assets/vendor-15e614f1.css"], "js": ["pages/__layout.svelte-91ba00a9.js", "chunks/vendor-5e6fc18f.js", "chunks/api-9553b917.js", "chunks/store-5f8546e9.js"], "styles": [] }, ".svelte-kit/build/components/error.svelte": { "entry": "error.svelte-a33b6c77.js", "css": ["assets/vendor-15e614f1.css"], "js": ["error.svelte-a33b6c77.js", "chunks/vendor-5e6fc18f.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-b85a0776.js", "css": ["assets/vendor-15e614f1.css"], "js": ["pages/index.svelte-b85a0776.js", "chunks/vendor-5e6fc18f.js", "chunks/api-9553b917.js"], "styles": [] }, "src/routes/blogs/index.svelte": { "entry": "pages/blogs/index.svelte-51d51e8c.js", "css": ["assets/pages/blogs/index.svelte-144fa14a.css", "assets/vendor-15e614f1.css"], "js": ["pages/blogs/index.svelte-51d51e8c.js", "chunks/vendor-5e6fc18f.js", "chunks/api-9553b917.js"], "styles": [] }, "src/routes/blogs/[blog].svelte": { "entry": "pages/blogs/[blog].svelte-c49dd2cf.js", "css": ["assets/pages/blogs/[blog].svelte-b9c23bba.css", "assets/vendor-15e614f1.css"], "js": ["pages/blogs/[blog].svelte-c49dd2cf.js", "chunks/vendor-5e6fc18f.js", "chunks/api-9553b917.js", "chunks/Comments-297b3e2a.js", "chunks/store-5f8546e9.js"], "styles": [] }, "src/routes/auth/register.svelte": { "entry": "pages/auth/register.svelte-f3941f92.js", "css": ["assets/pages/auth/register.svelte-8e0edff8.css", "assets/vendor-15e614f1.css", "assets/Form-1a6dab33.css"], "js": ["pages/auth/register.svelte-f3941f92.js", "chunks/vendor-5e6fc18f.js", "chunks/api-9553b917.js", "chunks/Form-80e69b76.js", "chunks/store-5f8546e9.js", "chunks/navigation-51f4a605.js", "chunks/singletons-12a22614.js"], "styles": [] }, "src/routes/auth/login.svelte": { "entry": "pages/auth/login.svelte-8d51c1fc.js", "css": ["assets/pages/auth/register.svelte-8e0edff8.css", "assets/vendor-15e614f1.css", "assets/Form-1a6dab33.css"], "js": ["pages/auth/login.svelte-8d51c1fc.js", "chunks/vendor-5e6fc18f.js", "chunks/api-9553b917.js", "chunks/Form-80e69b76.js", "chunks/store-5f8546e9.js", "chunks/navigation-51f4a605.js", "chunks/singletons-12a22614.js"], "styles": [] }, "src/routes/[page]/[subpage].svelte": { "entry": "pages/[page]/[subpage].svelte-865f3b77.js", "css": ["assets/vendor-15e614f1.css", "assets/Form-1a6dab33.css"], "js": ["pages/[page]/[subpage].svelte-865f3b77.js", "chunks/vendor-5e6fc18f.js", "chunks/api-9553b917.js", "chunks/store-5f8546e9.js", "chunks/Form-80e69b76.js"], "styles": [] }, "src/routes/[page].svelte": { "entry": "pages/[page].svelte-9aea5c91.js", "css": ["assets/pages/[page].svelte-859f1eda.css", "assets/vendor-15e614f1.css", "assets/Form-1a6dab33.css"], "js": ["pages/[page].svelte-9aea5c91.js", "chunks/vendor-5e6fc18f.js", "chunks/api-9553b917.js", "chunks/store-5f8546e9.js", "chunks/Form-80e69b76.js", "chunks/Comments-297b3e2a.js"], "styles": [] } };
+var metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-8316c7cd.js", "css": ["assets/pages/__layout.svelte-2b8e4798.css", "assets/vendor-15e614f1.css"], "js": ["pages/__layout.svelte-8316c7cd.js", "chunks/vendor-262dbd3a.js", "chunks/api-459a3947.js", "chunks/store-5c78f67a.js"], "styles": [] }, ".svelte-kit/build/components/error.svelte": { "entry": "error.svelte-819dcd30.js", "css": ["assets/vendor-15e614f1.css"], "js": ["error.svelte-819dcd30.js", "chunks/vendor-262dbd3a.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-da8805db.js", "css": ["assets/vendor-15e614f1.css"], "js": ["pages/index.svelte-da8805db.js", "chunks/vendor-262dbd3a.js", "chunks/api-459a3947.js"], "styles": [] }, "src/routes/blogs/index.svelte": { "entry": "pages/blogs/index.svelte-53d38c36.js", "css": ["assets/pages/blogs/index.svelte-144fa14a.css", "assets/vendor-15e614f1.css"], "js": ["pages/blogs/index.svelte-53d38c36.js", "chunks/vendor-262dbd3a.js", "chunks/api-459a3947.js"], "styles": [] }, "src/routes/blogs/[blog].svelte": { "entry": "pages/blogs/[blog].svelte-cad66453.js", "css": ["assets/pages/blogs/[blog].svelte-b9c23bba.css", "assets/vendor-15e614f1.css"], "js": ["pages/blogs/[blog].svelte-cad66453.js", "chunks/vendor-262dbd3a.js", "chunks/api-459a3947.js", "chunks/Comments-2165d446.js", "chunks/store-5c78f67a.js"], "styles": [] }, "src/routes/auth/register.svelte": { "entry": "pages/auth/register.svelte-3ecde662.js", "css": ["assets/pages/auth/register.svelte-8e0edff8.css", "assets/vendor-15e614f1.css", "assets/Form-1a6dab33.css"], "js": ["pages/auth/register.svelte-3ecde662.js", "chunks/vendor-262dbd3a.js", "chunks/api-459a3947.js", "chunks/Form-0df8493f.js", "chunks/store-5c78f67a.js", "chunks/navigation-51f4a605.js", "chunks/singletons-12a22614.js"], "styles": [] }, "src/routes/auth/login.svelte": { "entry": "pages/auth/login.svelte-bdd83a04.js", "css": ["assets/pages/auth/register.svelte-8e0edff8.css", "assets/vendor-15e614f1.css", "assets/Form-1a6dab33.css"], "js": ["pages/auth/login.svelte-bdd83a04.js", "chunks/vendor-262dbd3a.js", "chunks/api-459a3947.js", "chunks/Form-0df8493f.js", "chunks/store-5c78f67a.js", "chunks/navigation-51f4a605.js", "chunks/singletons-12a22614.js"], "styles": [] }, "src/routes/[page]/index.svelte": { "entry": "pages/[page]/index.svelte-af295838.js", "css": ["assets/pages/[page]/index.svelte-c17b8849.css", "assets/vendor-15e614f1.css", "assets/Form-1a6dab33.css"], "js": ["pages/[page]/index.svelte-af295838.js", "chunks/vendor-262dbd3a.js", "chunks/api-459a3947.js", "chunks/store-5c78f67a.js", "chunks/Form-0df8493f.js", "chunks/Comments-2165d446.js"], "styles": [] }, "src/routes/[page]/[subpage].svelte": { "entry": "pages/[page]/[subpage].svelte-3d2a6275.js", "css": ["assets/vendor-15e614f1.css", "assets/Form-1a6dab33.css"], "js": ["pages/[page]/[subpage].svelte-3d2a6275.js", "chunks/vendor-262dbd3a.js", "chunks/api-459a3947.js", "chunks/store-5c78f67a.js", "chunks/Form-0df8493f.js"], "styles": [] } };
 async function load_component(file) {
   const { entry, css: css2, js, styles } = metadata_lookup[file];
   return {
@@ -14814,6 +14814,39 @@ var send = async ({ method, path, params, data, token }) => {
 };
 var get = (path, params, token) => {
   return send({ method: "GET", path, params, token });
+};
+(0, import_cookie_universal.default)();
+var user = new import_rxjs.BehaviorSubject(null);
+var config = new import_rxjs.BehaviorSubject(null);
+var pages = new import_rxjs.BehaviorSubject([]);
+var categories = new import_rxjs.BehaviorSubject([]);
+new import_rxjs.BehaviorSubject(false);
+new import_rxjs.BehaviorSubject(false);
+var loading = new import_rxjs.BehaviorSubject(false);
+var errors = new import_rxjs.BehaviorSubject(null);
+var getStores = () => {
+  const stores = getContext("__svelte__");
+  return {
+    page: {
+      subscribe: stores.page.subscribe
+    },
+    navigating: {
+      subscribe: stores.navigating.subscribe
+    },
+    get preloading() {
+      console.error("stores.preloading is deprecated; use stores.navigating instead");
+      return {
+        subscribe: stores.navigating.subscribe
+      };
+    },
+    session: stores.session
+  };
+};
+var page = {
+  subscribe(fn) {
+    const store = getStores().page;
+    return store.subscribe(fn);
+  }
 };
 function classes(...args) {
   return args.filter((cls) => !!cls).join(" ");
@@ -15408,42 +15441,9 @@ var Loading = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   <div class="${"bounce3 svelte-8hh29x"}"></div>
 </div>`;
 });
-(0, import_cookie_universal.default)();
-var user = new import_rxjs.BehaviorSubject(null);
-var config = new import_rxjs.BehaviorSubject(null);
-var pages = new import_rxjs.BehaviorSubject([]);
-var categories = new import_rxjs.BehaviorSubject([]);
-new import_rxjs.BehaviorSubject(false);
-new import_rxjs.BehaviorSubject(false);
-var loading = new import_rxjs.BehaviorSubject(false);
-var errors = new import_rxjs.BehaviorSubject(null);
-var getStores = () => {
-  const stores = getContext("__svelte__");
-  return {
-    page: {
-      subscribe: stores.page.subscribe
-    },
-    navigating: {
-      subscribe: stores.navigating.subscribe
-    },
-    get preloading() {
-      console.error("stores.preloading is deprecated; use stores.navigating instead");
-      return {
-        subscribe: stores.navigating.subscribe
-      };
-    },
-    session: stores.session
-  };
-};
-var page = {
-  subscribe(fn) {
-    const store = getStores().page;
-    return store.subscribe(fn);
-  }
-};
 var css$7 = {
-  code: ".nav.svelte-vbsyo4.svelte-vbsyo4{box-shadow:0 1px 2px 0 rgba(40,42,49,.16);height:50px;width:100%}.nav.svelte-vbsyo4.svelte-vbsyo4,.nav-content.svelte-vbsyo4.svelte-vbsyo4{align-items:center;display:flex}.nav-content.svelte-vbsyo4.svelte-vbsyo4{justify-content:space-between}.nav-list.svelte-vbsyo4.svelte-vbsyo4{display:flex}.nav-li.svelte-vbsyo4.svelte-vbsyo4{list-style:none}.nav-li.active.svelte-vbsyo4 .nav-link.svelte-vbsyo4{font-weight:700}.nav-link.svelte-vbsyo4.svelte-vbsyo4{color:#000;font-size:.875rem;text-decoration:none}.nav-logo.svelte-vbsyo4.svelte-vbsyo4{font-size:1.2rem}.nav-logo-img.svelte-vbsyo4.svelte-vbsyo4{max-height:40px;max-width:100%}.desktop.svelte-vbsyo4.svelte-vbsyo4{display:none}.mobile.svelte-vbsyo4.svelte-vbsyo4{display:block}@media(min-width:768px){.desktop.svelte-vbsyo4.svelte-vbsyo4{display:block}.mobile.svelte-vbsyo4.svelte-vbsyo4{display:none}}.sidebar.svelte-vbsyo4.svelte-vbsyo4{background:#fff;box-shadow:-2px 1px 1px rgba(0,0,0,.1);height:calc(100vh - 50px);max-height:100%;min-width:60vw;position:absolute;right:0;top:51px;z-index:1}.sidebar-header.svelte-vbsyo4.svelte-vbsyo4{cursor:pointer;padding:15px}.sidebar-content.svelte-vbsyo4.svelte-vbsyo4{padding:15px}",
-  map: `{"version":3,"file":"Header.svelte","sources":["Header.svelte"],"sourcesContent":["<script>\\n\\timport { page } from '$app/stores';\\n\\timport { createEventDispatcher } from 'svelte';\\n\\timport { DropdownShell, Dropdown } from 'attractions';\\n\\timport { API_URL } from '../constants';\\n\\texport let user;\\n\\texport let sidebarOpen = false;\\n\\texport let pages = [];\\n\\texport let categories = [];\\n\\t$: home = pages.find(p => p.slug === 'home') || {title: 'home'}\\n\\t$: pagesInMenu  = pages.filter(p => p.slug !== 'home' && !p.categories.length).sort((a,b) => a.position - b.position)\\n\\n\\tconst dispatch = createEventDispatcher();\\n\\n\\tconst handleLogout = () => {\\n\\t\\tdispatch('logout');\\n\\t};\\n\\n\\tconst togleSidebar = () => {\\n\\t\\tdispatch('togglesidebar');\\n\\t};\\n\\n<\/script>\\n\\n<nav class=\\"nav\\">\\n\\t<div class=\\"container\\">\\n\\t\\t<div class=\\"nav-content\\">\\n\\t\\t\\t{#if home?.image && home.image.length}\\n\\t\\t\\t<a class=\\"nav-link nav-logo font-semibold\\" href=\\"/\\">\\n\\t\\t\\t\\t<img class=\\"nav-logo-img\\" src=\\"{ API_URL + home.image[0].url}\\" alt=\\"{home.title}\\">\\n\\t\\t\\t</a>\\n\\t\\t\\t{:else}\\n\\t\\t\\t<a class=\\"nav-link nav-logo font-semibold\\" href=\\"/\\">{home.title}</a>\\n\\t\\t\\t{/if}\\n\\t\\t\\t<ul class=\\"nav-list\\">\\n\\t\\t\\t\\t{#if pages.length}\\n\\t\\t\\t\\t\\t{#each pagesInMenu as dPage}\\n\\t\\t\\t\\t\\t\\t<li class=\\"nav-li mr-4 desktop\\" class:active={$page.path === '/' + dPage.url}>\\n\\t\\t\\t\\t\\t\\t\\t<a class=\\"nav-link\\" href=\\"/{dPage.url}\\">{dPage.title}</a>\\n\\t\\t\\t\\t\\t\\t</li>\\n\\t\\t\\t\\t\\t{/each}\\n\\t\\t\\t\\t{/if}\\n\\t\\t\\t\\t{#if !user}\\n\\t\\t\\t\\t<li class=\\"nav-li mr-4\\" class:active={$page.path === '/auth/register'}>\\n\\t\\t\\t\\t\\t<a class=\\"nav-link\\" href=\\"/auth/register\\">Register</a>\\n\\t\\t\\t\\t</li>\\n\\t\\t\\t\\t<li class=\\"nav-li mr-4\\" class:active={$page.path === '/auth/login'}>\\n\\t\\t\\t\\t\\t<a class=\\"nav-link\\" href=\\"/auth/login\\">Login</a>\\n\\t\\t\\t\\t</li>\\n\\t\\t\\t{/if}\\n\\t\\t\\t\\t{#if user}\\n\\t\\t\\t\\t\\t<li class=\\"nav-li\\"><a class=\\"nav-link\\" href=\\"/\\" on:click={handleLogout}>Logout</a></li>\\n\\t\\t\\t\\t{/if}\\n\\t\\t\\t\\t{#if pages.length}\\n\\t\\t\\t\\t\\t<li class=\\"nav-li mobile\\">\\n\\t\\t\\t\\t\\t\\t<DropdownShell let:toggle>\\n\\t\\t\\t\\t\\t\\t\\t<a href=\\"{'#'}\\"\\n\\t\\t\\t\\t\\t\\t\\t\\tclass=\\"nav-link mr-4  ml-4 cursor-pointer flex items-center mt-0.5\\"\\n\\t\\t\\t\\t\\t\\t\\t\\ton:click={toggle}\\n\\t\\t\\t\\t\\t\\t\\t>\\n\\t\\t\\t\\t\\t\\t\\t\\t<span>Menu</span> <span class=\\"-mt-1 ml-1 flex\\">\u2304</span>\\n\\t\\t\\t\\t\\t\\t\\t</a>\\n\\t\\t\\t\\t\\t\\t\\t<Dropdown right>\\n\\t\\t\\t\\t\\t\\t\\t\\t<div class=\\"px-4 py-2\\">\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t{#each pagesInMenu as dPage}\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<li class=\\"nav-li mr-4\\" class:active={$page.path === '/' + dPage.url}>\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<a class=\\"nav-link\\" href=\\"/{dPage.url}\\">{dPage.title}</a>\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t</li>\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t{/each}\\n\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t\\t\\t\\t</Dropdown>\\n\\t\\t\\t\\t\\t\\t</DropdownShell>\\n\\t\\t\\t\\t\\t</li>\\n\\t\\t\\t\\t{/if}\\n\\t\\t\\t\\t<li class=\\"px-4\\">\\n\\t\\t\\t\\t\\t<a href=\\"{'#'}\\" on:click=\\"{togleSidebar}\\">\\n\\t\\t\\t\\t\\t\\t<img src=\\"../../static/menu.svg\\" alt=\\"menu\\">\\n\\t\\t\\t\\t\\t</a>\\n\\t\\t\\t\\t</li>\\n\\t\\t\\t</ul>\\n\\t\\t</div>\\n\\t</div>\\n</nav>\\n{#if sidebarOpen}\\n<div class=\\"flex flex-col sidebar\\">\\n\\n\\t<div class=\\"sidebar-header\\">\\n\\t\\t<a href=\\"{'#'}\\" class=\\"text-3xl\\" on:click=\\"{togleSidebar}\\">&times;</a>\\n\\t</div>\\n\\n\\t<div class=\\"sidebar-content\\">\\n\\t\\t{#if categories.length}\\n\\t\\t\\t{#each categories as category}\\n\\t\\t\\t\\t{#if category.pages.length}\\n\\t\\t\\t\\t<div class=\\"pb-5\\">\\n\\t\\t\\t\\t<DropdownShell let:toggle>\\n\\t\\t\\t\\t\\t<a href=\\"{'#'}\\"\\n\\t\\t\\t\\t\\t\\tclass=\\"nav-link mr-4  ml-4 cursor-pointer flex items-center mt-0.5\\"\\n\\t\\t\\t\\t\\t\\ton:click={toggle}\\n\\t\\t\\t\\t\\t>\\n\\t\\t\\t\\t\\t\\t<span>{category.Title}</span> <span class=\\"-mt-1 ml-1 flex\\">\u2304</span>\\n\\t\\t\\t\\t\\t</a>\\n\\t\\t\\t\\t\\t<Dropdown left>\\n\\t\\t\\t\\t\\t\\t<div class=\\"px-4 py-2\\">\\n\\t\\t\\t\\t\\t\\t\\t{#each category.pages as cPage}\\n\\t\\t\\t\\t\\t\\t\\t\\t<li class=\\"nav-li mr-4\\" class:active={$page.path === '/' + cPage.url}>\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<a class=\\"nav-link\\" on:click=\\"{togleSidebar}\\" href=\\"/{cPage.url}\\">{cPage.title}</a>\\n\\t\\t\\t\\t\\t\\t\\t\\t</li>\\n\\t\\t\\t\\t\\t\\t\\t{/each}\\n\\t\\t\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t\\t</Dropdown>\\n\\t\\t\\t\\t</DropdownShell>\\n\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t{/if}\\n\\t\\t\\t{/each}\\n\\t\\t{/if}\\n\\n\\t</div>\\n\\n</div>\\n{/if}\\n\\n\\n<style lang=\\"scss\\">.nav{box-shadow:0 1px 2px 0 rgba(40,42,49,.16);height:50px;width:100%}.nav,.nav-content{align-items:center;display:flex}.nav-content{justify-content:space-between}.nav-list{display:flex}.nav-li{list-style:none}.nav-li.active .nav-link{font-weight:700}.nav-link{color:#000;font-size:.875rem;text-decoration:none}.nav-logo{font-size:1.2rem}.nav-logo-img{max-height:40px;max-width:100%}.desktop{display:none}.mobile{display:block}@media (min-width:768px){.desktop{display:block}.mobile{display:none}}.sidebar{background:#fff;box-shadow:-2px 1px 1px rgba(0,0,0,.1);height:calc(100vh - 50px);max-height:100%;min-width:60vw;position:absolute;right:0;top:51px;z-index:1}.sidebar-header{cursor:pointer;padding:15px}.sidebar-content{padding:15px}</style>\\n"],"names":[],"mappings":"AA2HmB,gCAAI,CAAC,WAAW,CAAC,CAAC,GAAG,CAAC,GAAG,CAAC,CAAC,CAAC,KAAK,EAAE,CAAC,EAAE,CAAC,EAAE,CAAC,GAAG,CAAC,CAAC,OAAO,IAAI,CAAC,MAAM,IAAI,CAAC,gCAAI,CAAC,wCAAY,CAAC,YAAY,MAAM,CAAC,QAAQ,IAAI,CAAC,wCAAY,CAAC,gBAAgB,aAAa,CAAC,qCAAS,CAAC,QAAQ,IAAI,CAAC,mCAAO,CAAC,WAAW,IAAI,CAAC,OAAO,qBAAO,CAAC,uBAAS,CAAC,YAAY,GAAG,CAAC,qCAAS,CAAC,MAAM,IAAI,CAAC,UAAU,OAAO,CAAC,gBAAgB,IAAI,CAAC,qCAAS,CAAC,UAAU,MAAM,CAAC,yCAAa,CAAC,WAAW,IAAI,CAAC,UAAU,IAAI,CAAC,oCAAQ,CAAC,QAAQ,IAAI,CAAC,mCAAO,CAAC,QAAQ,KAAK,CAAC,MAAM,AAAC,WAAW,KAAK,CAAC,CAAC,oCAAQ,CAAC,QAAQ,KAAK,CAAC,mCAAO,CAAC,QAAQ,IAAI,CAAC,CAAC,oCAAQ,CAAC,WAAW,IAAI,CAAC,WAAW,IAAI,CAAC,GAAG,CAAC,GAAG,CAAC,KAAK,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,OAAO,KAAK,KAAK,CAAC,CAAC,CAAC,IAAI,CAAC,CAAC,WAAW,IAAI,CAAC,UAAU,IAAI,CAAC,SAAS,QAAQ,CAAC,MAAM,CAAC,CAAC,IAAI,IAAI,CAAC,QAAQ,CAAC,CAAC,2CAAe,CAAC,OAAO,OAAO,CAAC,QAAQ,IAAI,CAAC,4CAAgB,CAAC,QAAQ,IAAI,CAAC"}`
+  code: ".nav.svelte-1kjzyn.svelte-1kjzyn{box-shadow:0 1px 2px 0 rgba(40,42,49,.16);height:50px;width:100%}.nav.svelte-1kjzyn.svelte-1kjzyn,.nav-content.svelte-1kjzyn.svelte-1kjzyn{align-items:center;display:flex}.nav-content.svelte-1kjzyn.svelte-1kjzyn{justify-content:space-between}.nav-list.svelte-1kjzyn.svelte-1kjzyn{display:flex}.nav-li.svelte-1kjzyn.svelte-1kjzyn{list-style:none}.nav-li.active.svelte-1kjzyn .nav-link.svelte-1kjzyn{font-weight:700}.nav-link.svelte-1kjzyn.svelte-1kjzyn{color:#000;font-size:.875rem;text-decoration:none}.nav-logo.svelte-1kjzyn.svelte-1kjzyn{font-size:1.2rem}.nav-logo-img.svelte-1kjzyn.svelte-1kjzyn{max-height:40px;max-width:100%}.desktop.svelte-1kjzyn.svelte-1kjzyn{display:none}.mobile.svelte-1kjzyn.svelte-1kjzyn{display:block}@media(min-width:768px){.desktop.svelte-1kjzyn.svelte-1kjzyn{display:block}.mobile.svelte-1kjzyn.svelte-1kjzyn{display:none}}.sidebar.svelte-1kjzyn.svelte-1kjzyn{background:#fff;box-shadow:-2px 1px 1px rgba(0,0,0,.1);height:calc(100vh - 50px);max-height:100%;min-width:60vw;overflow-y:hidden;position:absolute;right:0;top:51px;z-index:1}.sidebar-header.svelte-1kjzyn.svelte-1kjzyn{cursor:pointer;padding:15px}.sidebar-content.svelte-1kjzyn.svelte-1kjzyn{padding:15px}",
+  map: `{"version":3,"file":"Header.svelte","sources":["Header.svelte"],"sourcesContent":["<script>\\n\\timport { page } from '$app/stores';\\n\\timport { createEventDispatcher } from 'svelte';\\n\\timport { DropdownShell, Dropdown } from 'attractions';\\n\\timport { API_URL } from '../constants';\\n\\texport let user;\\n\\texport let sidebarOpen = false;\\n\\texport let pages = [];\\n\\texport let categories = [];\\n\\t$: home = pages.find(p => p.slug === 'home') || {title: 'home'}\\n\\t$: pagesInMenu  = pages.filter(p => p.slug !== 'home' && !p.categories.length).sort((a,b) => a.position - b.position)\\n\\n\\tconst dispatch = createEventDispatcher();\\n\\n\\tconst handleLogout = () => {\\n\\t\\tdispatch('logout');\\n\\t};\\n\\n\\tconst togleSidebar = () => {\\n\\t\\tdispatch('togglesidebar');\\n\\t};\\n\\n<\/script>\\n\\n<nav class=\\"nav\\">\\n\\t<div class=\\"container\\">\\n\\t\\t<div class=\\"nav-content\\">\\n\\t\\t\\t{#if home?.image && home.image.length}\\n\\t\\t\\t<a class=\\"nav-link nav-logo font-semibold\\" href=\\"/\\">\\n\\t\\t\\t\\t<img class=\\"nav-logo-img\\" src=\\"{ API_URL + home.image[0].url}\\" alt=\\"{home.title}\\">\\n\\t\\t\\t</a>\\n\\t\\t\\t{:else}\\n\\t\\t\\t<a class=\\"nav-link nav-logo font-semibold\\" href=\\"/\\">{home.title}</a>\\n\\t\\t\\t{/if}\\n\\t\\t\\t<ul class=\\"nav-list\\">\\n\\t\\t\\t\\t{#if pages.length}\\n\\t\\t\\t\\t\\t{#each pagesInMenu as dPage}\\n\\t\\t\\t\\t\\t\\t<li class=\\"nav-li mr-4 desktop\\" class:active={$page.path === '/' + dPage.url}>\\n\\t\\t\\t\\t\\t\\t\\t<a class=\\"nav-link\\" href=\\"/{dPage.url}\\">{dPage.title}</a>\\n\\t\\t\\t\\t\\t\\t</li>\\n\\t\\t\\t\\t\\t{/each}\\n\\t\\t\\t\\t{/if}\\n\\t\\t\\t\\t{#if !user}\\n\\t\\t\\t\\t<li class=\\"nav-li mr-4\\" class:active={$page.path === '/auth/register'}>\\n\\t\\t\\t\\t\\t<a class=\\"nav-link\\" href=\\"/auth/register\\">Register</a>\\n\\t\\t\\t\\t</li>\\n\\t\\t\\t\\t<li class=\\"nav-li mr-4\\" class:active={$page.path === '/auth/login'}>\\n\\t\\t\\t\\t\\t<a class=\\"nav-link\\" href=\\"/auth/login\\">Login</a>\\n\\t\\t\\t\\t</li>\\n\\t\\t\\t{/if}\\n\\t\\t\\t\\t{#if user}\\n\\t\\t\\t\\t\\t<li class=\\"nav-li\\"><a class=\\"nav-link\\" href=\\"/\\" on:click={handleLogout}>Logout</a></li>\\n\\t\\t\\t\\t{/if}\\n\\t\\t\\t\\t{#if pages.length}\\n\\t\\t\\t\\t\\t<li class=\\"nav-li mobile\\">\\n\\t\\t\\t\\t\\t\\t<DropdownShell let:toggle>\\n\\t\\t\\t\\t\\t\\t\\t<a href=\\"{'#'}\\"\\n\\t\\t\\t\\t\\t\\t\\t\\tclass=\\"nav-link mr-4  ml-4 cursor-pointer flex items-center mt-0.5\\"\\n\\t\\t\\t\\t\\t\\t\\t\\ton:click={toggle}\\n\\t\\t\\t\\t\\t\\t\\t>\\n\\t\\t\\t\\t\\t\\t\\t\\t<span>Menu</span> <span class=\\"-mt-1 ml-1 flex\\">\u2304</span>\\n\\t\\t\\t\\t\\t\\t\\t</a>\\n\\t\\t\\t\\t\\t\\t\\t<Dropdown right>\\n\\t\\t\\t\\t\\t\\t\\t\\t<ul class=\\"px-4 py-2\\">\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t{#each pagesInMenu as dPage}\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<li class=\\"nav-li mr-4\\" class:active={$page.path === '/' + dPage.url}>\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<a class=\\"nav-link\\" href=\\"/{dPage.url}\\">{dPage.title}</a>\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t</li>\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t{/each}\\n\\t\\t\\t\\t\\t\\t\\t\\t</ul>\\n\\t\\t\\t\\t\\t\\t\\t</Dropdown>\\n\\t\\t\\t\\t\\t\\t</DropdownShell>\\n\\t\\t\\t\\t\\t</li>\\n\\t\\t\\t\\t{/if}\\n\\t\\t\\t\\t<li class=\\"px-4\\">\\n\\t\\t\\t\\t\\t<a href=\\"{'#'}\\" on:click=\\"{togleSidebar}\\">\\n\\t\\t\\t\\t\\t\\t<svg fill=\\"#000000\\" xmlns=\\"http://www.w3.org/2000/svg\\"  viewBox=\\"0 0 24 24\\" width=\\"24px\\" height=\\"24px\\"><path d=\\"M 2 5 L 2 7 L 22 7 L 22 5 L 2 5 z M 2 11 L 2 13 L 22 13 L 22 11 L 2 11 z M 2 17 L 2 19 L 22 19 L 22 17 L 2 17 z\\"/></svg>\\n\\t\\t\\t\\t\\t</a>\\n\\t\\t\\t\\t</li>\\n\\t\\t\\t</ul>\\n\\t\\t</div>\\n\\t</div>\\n</nav>\\n{#if sidebarOpen}\\n<div class=\\"flex flex-col sidebar\\">\\n\\n\\t<div class=\\"sidebar-header\\">\\n\\t\\t<a href=\\"{'#'}\\" class=\\"text-3xl\\" on:click=\\"{togleSidebar}\\">&times;</a>\\n\\t</div>\\n\\n\\t<div class=\\"sidebar-content\\">\\n\\t\\t{#if categories.length}\\n\\t\\t\\t{#each categories as category}\\n\\t\\t\\t\\t{#if category.pages.length}\\n\\t\\t\\t\\t<div class=\\"pb-5\\">\\n\\t\\t\\t\\t<DropdownShell let:toggle>\\n\\t\\t\\t\\t\\t<a href=\\"{'#'}\\"\\n\\t\\t\\t\\t\\t\\tclass=\\"nav-link mr-4  ml-4 cursor-pointer flex items-center mt-0.5\\"\\n\\t\\t\\t\\t\\t\\ton:click={toggle}\\n\\t\\t\\t\\t\\t>\\n\\t\\t\\t\\t\\t\\t<span>{category.Title}</span> <span class=\\"-mt-1 ml-1 flex\\">\u2304</span>\\n\\t\\t\\t\\t\\t</a>\\n\\t\\t\\t\\t\\t<Dropdown left>\\n\\t\\t\\t\\t\\t\\t<div class=\\"px-4 py-2\\">\\n\\t\\t\\t\\t\\t\\t\\t{#each category.pages as cPage}\\n\\t\\t\\t\\t\\t\\t\\t\\t<li class=\\"nav-li mr-4\\" class:active={$page.path === '/' + cPage.url}>\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<a class=\\"nav-link\\" on:click=\\"{togleSidebar}\\" href=\\"/{cPage.url}\\">{cPage.title}</a>\\n\\t\\t\\t\\t\\t\\t\\t\\t</li>\\n\\t\\t\\t\\t\\t\\t\\t{/each}\\n\\t\\t\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t\\t</Dropdown>\\n\\t\\t\\t\\t</DropdownShell>\\n\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t{/if}\\n\\t\\t\\t{/each}\\n\\t\\t{/if}\\n\\n\\t</div>\\n\\n</div>\\n{/if}\\n\\n\\n<style lang=\\"scss\\">.nav{box-shadow:0 1px 2px 0 rgba(40,42,49,.16);height:50px;width:100%}.nav,.nav-content{align-items:center;display:flex}.nav-content{justify-content:space-between}.nav-list{display:flex}.nav-li{list-style:none}.nav-li.active .nav-link{font-weight:700}.nav-link{color:#000;font-size:.875rem;text-decoration:none}.nav-logo{font-size:1.2rem}.nav-logo-img{max-height:40px;max-width:100%}.desktop{display:none}.mobile{display:block}@media (min-width:768px){.desktop{display:block}.mobile{display:none}}.sidebar{background:#fff;box-shadow:-2px 1px 1px rgba(0,0,0,.1);height:calc(100vh - 50px);max-height:100%;min-width:60vw;overflow-y:hidden;position:absolute;right:0;top:51px;z-index:1}.sidebar-header{cursor:pointer;padding:15px}.sidebar-content{padding:15px}</style>\\n"],"names":[],"mappings":"AA2HmB,gCAAI,CAAC,WAAW,CAAC,CAAC,GAAG,CAAC,GAAG,CAAC,CAAC,CAAC,KAAK,EAAE,CAAC,EAAE,CAAC,EAAE,CAAC,GAAG,CAAC,CAAC,OAAO,IAAI,CAAC,MAAM,IAAI,CAAC,gCAAI,CAAC,wCAAY,CAAC,YAAY,MAAM,CAAC,QAAQ,IAAI,CAAC,wCAAY,CAAC,gBAAgB,aAAa,CAAC,qCAAS,CAAC,QAAQ,IAAI,CAAC,mCAAO,CAAC,WAAW,IAAI,CAAC,OAAO,qBAAO,CAAC,uBAAS,CAAC,YAAY,GAAG,CAAC,qCAAS,CAAC,MAAM,IAAI,CAAC,UAAU,OAAO,CAAC,gBAAgB,IAAI,CAAC,qCAAS,CAAC,UAAU,MAAM,CAAC,yCAAa,CAAC,WAAW,IAAI,CAAC,UAAU,IAAI,CAAC,oCAAQ,CAAC,QAAQ,IAAI,CAAC,mCAAO,CAAC,QAAQ,KAAK,CAAC,MAAM,AAAC,WAAW,KAAK,CAAC,CAAC,oCAAQ,CAAC,QAAQ,KAAK,CAAC,mCAAO,CAAC,QAAQ,IAAI,CAAC,CAAC,oCAAQ,CAAC,WAAW,IAAI,CAAC,WAAW,IAAI,CAAC,GAAG,CAAC,GAAG,CAAC,KAAK,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,OAAO,KAAK,KAAK,CAAC,CAAC,CAAC,IAAI,CAAC,CAAC,WAAW,IAAI,CAAC,UAAU,IAAI,CAAC,WAAW,MAAM,CAAC,SAAS,QAAQ,CAAC,MAAM,CAAC,CAAC,IAAI,IAAI,CAAC,QAAQ,CAAC,CAAC,2CAAe,CAAC,OAAO,OAAO,CAAC,QAAQ,IAAI,CAAC,4CAAgB,CAAC,QAAQ,IAAI,CAAC"}`
 };
 var Header = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let home;
@@ -15467,35 +15467,35 @@ var Header = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   home = pages2.find((p) => p.slug === "home") || { title: "home" };
   pagesInMenu = pages2.filter((p) => p.slug !== "home" && !p.categories.length).sort((a, b) => a.position - b.position);
   $$unsubscribe_page();
-  return `<nav class="${"nav svelte-vbsyo4"}"><div class="${"container"}"><div class="${"nav-content svelte-vbsyo4"}">${(home == null ? void 0 : home.image) && home.image.length ? `<a class="${"nav-link nav-logo font-semibold svelte-vbsyo4"}" href="${"/"}"><img class="${"nav-logo-img svelte-vbsyo4"}"${add_attribute("src", API_URL + home.image[0].url, 0)}${add_attribute("alt", home.title, 0)}></a>` : `<a class="${"nav-link nav-logo font-semibold svelte-vbsyo4"}" href="${"/"}">${escape(home.title)}</a>`}
-			<ul class="${"nav-list svelte-vbsyo4"}">${pages2.length ? `${each(pagesInMenu, (dPage) => `<li class="${[
-    "nav-li mr-4 desktop svelte-vbsyo4",
+  return `<nav class="${"nav svelte-1kjzyn"}"><div class="${"container"}"><div class="${"nav-content svelte-1kjzyn"}">${(home == null ? void 0 : home.image) && home.image.length ? `<a class="${"nav-link nav-logo font-semibold svelte-1kjzyn"}" href="${"/"}"><img class="${"nav-logo-img svelte-1kjzyn"}"${add_attribute("src", API_URL + home.image[0].url, 0)}${add_attribute("alt", home.title, 0)}></a>` : `<a class="${"nav-link nav-logo font-semibold svelte-1kjzyn"}" href="${"/"}">${escape(home.title)}</a>`}
+			<ul class="${"nav-list svelte-1kjzyn"}">${pages2.length ? `${each(pagesInMenu, (dPage) => `<li class="${[
+    "nav-li mr-4 desktop svelte-1kjzyn",
     $page.path === "/" + dPage.url ? "active" : ""
-  ].join(" ").trim()}"><a class="${"nav-link svelte-vbsyo4"}" href="${"/" + escape(dPage.url)}">${escape(dPage.title)}</a>
+  ].join(" ").trim()}"><a class="${"nav-link svelte-1kjzyn"}" href="${"/" + escape(dPage.url)}">${escape(dPage.title)}</a>
 						</li>`)}` : ``}
-				${!user2 ? `<li class="${["nav-li mr-4 svelte-vbsyo4", $page.path === "/auth/register" ? "active" : ""].join(" ").trim()}"><a class="${"nav-link svelte-vbsyo4"}" href="${"/auth/register"}">Register</a></li>
-				<li class="${["nav-li mr-4 svelte-vbsyo4", $page.path === "/auth/login" ? "active" : ""].join(" ").trim()}"><a class="${"nav-link svelte-vbsyo4"}" href="${"/auth/login"}">Login</a></li>` : ``}
-				${user2 ? `<li class="${"nav-li svelte-vbsyo4"}"><a class="${"nav-link svelte-vbsyo4"}" href="${"/"}">Logout</a></li>` : ``}
-				${pages2.length ? `<li class="${"nav-li mobile svelte-vbsyo4"}">${validate_component(Dropdown_shell, "DropdownShell").$$render($$result, {}, {}, {
-    default: ({ toggle }) => `<a${add_attribute("href", "#", 0)} class="${"nav-link mr-4 ml-4 cursor-pointer flex items-center mt-0.5 svelte-vbsyo4"}"><span>Menu</span> <span class="${"-mt-1 ml-1 flex"}">\u2304</span></a>
+				${!user2 ? `<li class="${["nav-li mr-4 svelte-1kjzyn", $page.path === "/auth/register" ? "active" : ""].join(" ").trim()}"><a class="${"nav-link svelte-1kjzyn"}" href="${"/auth/register"}">Register</a></li>
+				<li class="${["nav-li mr-4 svelte-1kjzyn", $page.path === "/auth/login" ? "active" : ""].join(" ").trim()}"><a class="${"nav-link svelte-1kjzyn"}" href="${"/auth/login"}">Login</a></li>` : ``}
+				${user2 ? `<li class="${"nav-li svelte-1kjzyn"}"><a class="${"nav-link svelte-1kjzyn"}" href="${"/"}">Logout</a></li>` : ``}
+				${pages2.length ? `<li class="${"nav-li mobile svelte-1kjzyn"}">${validate_component(Dropdown_shell, "DropdownShell").$$render($$result, {}, {}, {
+    default: ({ toggle }) => `<a${add_attribute("href", "#", 0)} class="${"nav-link mr-4 ml-4 cursor-pointer flex items-center mt-0.5 svelte-1kjzyn"}"><span>Menu</span> <span class="${"-mt-1 ml-1 flex"}">\u2304</span></a>
 							${validate_component(Dropdown, "Dropdown").$$render($$result, { right: true }, {}, {
-      default: () => `<div class="${"px-4 py-2"}">${each(pagesInMenu, (dPage) => `<li class="${[
-        "nav-li mr-4 svelte-vbsyo4",
+      default: () => `<ul class="${"px-4 py-2"}">${each(pagesInMenu, (dPage) => `<li class="${[
+        "nav-li mr-4 svelte-1kjzyn",
         $page.path === "/" + dPage.url ? "active" : ""
-      ].join(" ").trim()}"><a class="${"nav-link svelte-vbsyo4"}" href="${"/" + escape(dPage.url)}">${escape(dPage.title)}</a>
-										</li>`)}</div>`
+      ].join(" ").trim()}"><a class="${"nav-link svelte-1kjzyn"}" href="${"/" + escape(dPage.url)}">${escape(dPage.title)}</a>
+										</li>`)}</ul>`
     })}`
   })}</li>` : ``}
-				<li class="${"px-4"}"><a${add_attribute("href", "#", 0)}><img src="${"../../static/menu.svg"}" alt="${"menu"}"></a></li></ul></div></div></nav>
-${sidebarOpen ? `<div class="${"flex flex-col sidebar svelte-vbsyo4"}"><div class="${"sidebar-header svelte-vbsyo4"}"><a${add_attribute("href", "#", 0)} class="${"text-3xl"}">\xD7</a></div>
+				<li class="${"px-4"}"><a${add_attribute("href", "#", 0)}><svg fill="${"#000000"}" xmlns="${"http://www.w3.org/2000/svg"}" viewBox="${"0 0 24 24"}" width="${"24px"}" height="${"24px"}"><path d="${"M 2 5 L 2 7 L 22 7 L 22 5 L 2 5 z M 2 11 L 2 13 L 22 13 L 22 11 L 2 11 z M 2 17 L 2 19 L 22 19 L 22 17 L 2 17 z"}"></path></svg></a></li></ul></div></div></nav>
+${sidebarOpen ? `<div class="${"flex flex-col sidebar svelte-1kjzyn"}"><div class="${"sidebar-header svelte-1kjzyn"}"><a${add_attribute("href", "#", 0)} class="${"text-3xl"}">\xD7</a></div>
 
-	<div class="${"sidebar-content svelte-vbsyo4"}">${categories2.length ? `${each(categories2, (category) => `${category.pages.length ? `<div class="${"pb-5"}">${validate_component(Dropdown_shell, "DropdownShell").$$render($$result, {}, {}, {
-    default: ({ toggle }) => `<a${add_attribute("href", "#", 0)} class="${"nav-link mr-4 ml-4 cursor-pointer flex items-center mt-0.5 svelte-vbsyo4"}"><span>${escape(category.Title)}</span> <span class="${"-mt-1 ml-1 flex"}">\u2304</span></a>
+	<div class="${"sidebar-content svelte-1kjzyn"}">${categories2.length ? `${each(categories2, (category) => `${category.pages.length ? `<div class="${"pb-5"}">${validate_component(Dropdown_shell, "DropdownShell").$$render($$result, {}, {}, {
+    default: ({ toggle }) => `<a${add_attribute("href", "#", 0)} class="${"nav-link mr-4 ml-4 cursor-pointer flex items-center mt-0.5 svelte-1kjzyn"}"><span>${escape(category.Title)}</span> <span class="${"-mt-1 ml-1 flex"}">\u2304</span></a>
 					${validate_component(Dropdown, "Dropdown").$$render($$result, { left: true }, {}, {
       default: () => `<div class="${"px-4 py-2"}">${each(category.pages, (cPage) => `<li class="${[
-        "nav-li mr-4 svelte-vbsyo4",
+        "nav-li mr-4 svelte-1kjzyn",
         $page.path === "/" + cPage.url ? "active" : ""
-      ].join(" ").trim()}"><a class="${"nav-link svelte-vbsyo4"}" href="${"/" + escape(cPage.url)}">${escape(cPage.title)}</a>
+      ].join(" ").trim()}"><a class="${"nav-link svelte-1kjzyn"}" href="${"/" + escape(cPage.url)}">${escape(cPage.title)}</a>
 								</li>`)}</div>
 					`
     })}
@@ -15505,7 +15505,7 @@ ${sidebarOpen ? `<div class="${"flex flex-col sidebar svelte-vbsyo4"}"><div clas
 });
 var css$6 = {
   code: ".fixed.svelte-oi2xw6{min-width:100%;position:fixed}",
-  map: `{"version":3,"file":"__layout.svelte","sources":["__layout.svelte"],"sourcesContent":["<script context=\\"module\\">\\n\\timport { get } from '$lib/api';\\n\\n\\texport const load = async ({ page }) => {\\n    const responsePages = await get(\`pages\`);\\n\\t\\tconst responseCategories = await get(\`categories\`);\\n\\t\\tconst responseConfig = await get(\`config\`);\\n\\n\\t\\tif (responsePages && responseConfig && responseCategories) {\\n      pages.next(responsePages)\\n\\t\\t\\tconfig.next(responseConfig)\\n\\t\\t\\tcategories.next(responseCategories)\\n\\n\\t\\t\\treturn {\\n\\t\\t\\t\\tprops: {\\n\\t\\t\\t\\t\\tallPages: responsePages,\\n\\t\\t\\t\\t\\tallCategories: responseCategories\\n\\t\\t\\t\\t},\\n\\t\\t\\t\\tmaxage: 0\\n\\t\\t\\t};\\n\\t\\t}\\n\\n\\t\\treturn {\\n\\t\\t\\terror: new Error()\\n\\t\\t};\\n\\t};\\n<\/script>\\n\\n<script>\\n\\timport { onMount } from 'svelte';\\n  import { Loading } from 'attractions';\\n  import { autoLogin, config, user, logout, pages, categories } from '$lib/store';\\n\\timport \\"../app.scss\\";\\n  import Header from '../lib/components/Header.svelte';\\n  export let loaded = false;\\n\\texport let sidebarOpen = false;\\n  export let allPages = [];\\n\\texport let allCategories = [];\\n\\n\\tonMount(() => {\\n\\t\\tloaded = autoLogin();\\n\\t})\\n\\n\\tconst togleSidebar = () => {\\n\\t\\tsidebarOpen = !sidebarOpen;\\n\\t}\\n<\/script>\\n\\n{#if !loaded}\\n<div class=\\"loader\\">\\n\\t<Loading>\\n</Loading></div>\\n{/if}\\n\\n{#if loaded}\\n<Header \\n\\tsidebarOpen=\\"{sidebarOpen}\\" \\n\\tuser=\\"{$user}\\" \\n\\tpages=\\"{allPages}\\" \\n\\tcategories=\\"{allCategories}\\"\\n\\ton:logout=\\"{logout}\\"\\n\\ton:togglesidebar=\\"{togleSidebar}\\"\\n\\t/>\\n\\t<main class:fixed=\\"{sidebarOpen}\\">\\n\\t\\t<slot></slot>\\n  </main>\\n\\n\\t<footer></footer>\\n{/if}\\n\\n<style lang=\\"scss\\">.fixed{min-width:100%;position:fixed}</style>\\n\\n"],"names":[],"mappings":"AAsEmB,oBAAM,CAAC,UAAU,IAAI,CAAC,SAAS,KAAK,CAAC"}`
+  map: `{"version":3,"file":"__layout.svelte","sources":["__layout.svelte"],"sourcesContent":["<script context=\\"module\\">\\n\\n\\texport const load = async ({ page }) => {\\n    const responsePages = await get(\`pages\`);\\n\\t\\tconst responseCategories = await get(\`categories\`);\\n\\t\\tconst responseConfig = await get(\`config\`);\\n\\n\\t\\tif (responsePages && responseConfig && responseCategories) {\\n      pages.next(responsePages)\\n\\t\\t\\tconfig.next(responseConfig)\\n\\t\\t\\tcategories.next(responseCategories)\\n\\n\\t\\t\\treturn {\\n\\t\\t\\t\\tprops: {\\n\\t\\t\\t\\t\\tallPages: responsePages,\\n\\t\\t\\t\\t\\tallCategories: responseCategories\\n\\t\\t\\t\\t}\\n\\t\\t\\t};\\n\\t\\t}\\n\\n\\t\\treturn {\\n\\t\\t\\terror: new Error()\\n\\t\\t};\\n\\t};\\n<\/script>\\n\\n<script>\\n\\timport \\"../app.css\\";\\n\\timport { get } from '$lib/api';\\n\\timport { onMount } from 'svelte';\\n  import { autoLogin, config, user, logout, pages, categories } from '$lib/store';\\n  import Header from '$lib/components/Header.svelte';\\n\\n  export let loaded = false;\\n\\texport let sidebarOpen = false;\\n  export let allPages = [];\\n\\texport let allCategories = [];\\n\\n\\tonMount(() => {\\n\\t\\tloaded = autoLogin();\\n\\t})\\n\\n\\tconst togleSidebar = () => {\\n\\t\\tsidebarOpen = !sidebarOpen;\\n\\t}\\n<\/script>\\n\\n<Header \\n\\tsidebarOpen=\\"{sidebarOpen}\\" \\n\\tuser=\\"{$user}\\" \\n\\tpages=\\"{allPages}\\" \\n\\tcategories=\\"{allCategories}\\"\\n\\ton:logout=\\"{logout}\\"\\n\\ton:togglesidebar=\\"{togleSidebar}\\"\\n\\t/>\\n\\n\\t<main class:fixed=\\"{sidebarOpen}\\">\\n\\t\\t<slot></slot>\\n  </main>\\n\\n\\t<footer></footer>\\n\\n<style>.fixed{min-width:100%;position:fixed}</style>\\n\\n"],"names":[],"mappings":"AA8DO,oBAAM,CAAC,UAAU,IAAI,CAAC,SAAS,KAAK,CAAC"}`
 };
 var load$8 = async ({ page: page2 }) => {
   const responsePages = await get(`pages`);
@@ -15519,8 +15519,7 @@ var load$8 = async ({ page: page2 }) => {
       props: {
         allPages: responsePages,
         allCategories: responseCategories
-      },
-      maxage: 0
+      }
     };
   }
   return { error: new Error() };
@@ -15542,17 +15541,16 @@ var _layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     $$bindings.allCategories(allCategories);
   $$result.css.add(css$6);
   $$unsubscribe_user();
-  return `${!loaded ? `<div class="${"loader"}">${validate_component(Loading, "Loading").$$render($$result, {}, {}, {})}</div>` : ``}
-
-${loaded ? `${validate_component(Header, "Header").$$render($$result, {
+  return `${validate_component(Header, "Header").$$render($$result, {
     sidebarOpen,
     user: $user,
     pages: allPages,
     categories: allCategories
   }, {}, {})}
+
 	<main class="${["svelte-oi2xw6", sidebarOpen ? "fixed" : ""].join(" ").trim()}">${slots.default ? slots.default({}) : ``}</main>
 
-	<footer></footer>` : ``}`;
+	<footer></footer>`;
 });
 var __layout = /* @__PURE__ */ Object.freeze({
   __proto__: null,
@@ -15589,10 +15587,7 @@ var load$6 = async ({ page: page2 }) => {
   const response = await get(`contents?slug=home`);
   if (response && response.length) {
     const result = response[0];
-    return {
-      props: { content: result.content },
-      maxage: 0
-    };
+    return { props: { content: result.content } };
   }
   return {
     props: { content: "Something went wrong" }
@@ -15606,7 +15601,7 @@ var Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 
 <div class="${"w-full"}">${content ? `<!-- HTML_TAG_START -->${content}<!-- HTML_TAG_END -->` : ``}</div>`;
 });
-var index$1 = /* @__PURE__ */ Object.freeze({
+var index$2 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": Routes,
@@ -15645,7 +15640,7 @@ var Blogs = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 		</a>`)}` : ``}
 </div>`;
 });
-var index = /* @__PURE__ */ Object.freeze({
+var index$1 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": Blogs,
@@ -15849,7 +15844,94 @@ var login = /* @__PURE__ */ Object.freeze({
   "default": Login,
   load: load$2
 });
+var css = {
+  code: ".content.svelte-1ea4xet h2{color:#000;font-size:1.6rem;font-weight:600}.content.svelte-1ea4xet p{font-size:1.2rem;text-align:justify}.content.svelte-1ea4xet pre{background-color:#f9f9f9;border-radius:2px;box-shadow:inset 1px 1px 5px rgba(0,0,0,.05);overflow-x:auto;padding:.5em}.content.svelte-1ea4xet pre code{background-color:transparent;padding:0}.content.svelte-1ea4xet ul{line-height:1.5}.content.svelte-1ea4xet li{font-size:1.2rem;margin:0 0 .5rem}",
+  map: `{"version":3,"file":"index.svelte","sources":["index.svelte"],"sourcesContent":["<script context=\\"module\\">\\n\\timport { get } from '$lib/api';\\n\\n\\texport const load = async ({ page }) => {\\n\\t\\tconst response = await get(\`contents?slug=\` + page.params.page);\\n\\n\\t\\tif (response && response.length) {\\n\\t\\t\\tconst result = response[0];\\n\\n\\t\\t\\treturn {\\n\\t\\t\\t\\tprops: {\\n\\t\\t\\t\\t\\tcontent: result.content,\\n\\t\\t\\t\\t\\tform: result.form ? Object.entries(result.form.fields) : null,\\n\\t\\t\\t\\t\\tjsonSettings: result.json,\\n          formAction: result.form ? result.form.action : null,\\n\\t\\t\\t\\t\\tpageSlug: page.params.page,\\n\\t\\t\\t\\t\\tpageHost: page.host,\\n\\t\\t\\t\\t\\tempty: '',\\n          success: false\\n\\t\\t\\t\\t}\\n\\t\\t\\t};\\n\\t\\t}\\n\\n\\t\\treturn {\\n\\t\\t\\tprops: {\\n\\t\\t\\t\\tempty: 'This page is empty',\\n\\t\\t\\t\\tpageSlug: page.params.page,\\n\\t\\t\\t\\tpageHost: page.host,\\n\\t\\t\\t\\tcontent: null,\\n\\t\\t\\t\\tform: null,\\n\\t\\t\\t\\tjsonSettings: null,\\n        success: false\\n\\t\\t\\t}\\n\\t\\t};\\n\\t};\\n<\/script>\\n\\n<script>\\n\\timport { pages } from '$lib/store';\\n\\timport Form from '$lib/components/Form.svelte';\\n\\timport Comments from '$lib/components/Comments.svelte';\\n  import { errors, loading, formSubmit } from '$lib/store';\\n  import { filter, take, withLatestFrom } from 'rxjs';\\n  import { Loading } from 'attractions';\\n\\timport marked from 'marked';\\n\\n\\texport let content = null;\\n\\texport let form = null;\\n\\texport let jsonSettings = null;\\n  export let formAction = '';\\n\\texport let pageSlug = null;\\n\\texport let pageHost = null;\\n\\texport let empty = null;\\n  export let success = false;\\n  export let formLoading = false;\\n\\t$: title = pages.value?.find(p => p.slug === pageSlug)?.title || pageSlug;\\n\\n\\tasync function submitForm(event) {\\n\\t\\tconst data = {\\n\\t\\t\\t...event.detail\\n\\t\\t};\\n\\n    if (!formAction) {\\n      return;\\n    }\\n    \\n    formLoading = true;\\n\\n    formSubmit(formAction, data)\\n\\n    loading\\n\\t\\t\\t.pipe(\\n\\t\\t\\t\\tfilter((loading) => !loading),\\n\\t\\t\\t\\twithLatestFrom(errors),\\n\\t\\t\\t\\ttake(1)\\n\\t\\t\\t)\\n\\t\\t\\t.subscribe(([_loading, error]) => {\\n        formLoading = false;\\n\\t\\t\\t\\tif (!error) {\\n          success = true;\\n\\t\\t\\t\\t}\\n\\t\\t\\t});\\n\\t}\\n<\/script>\\n\\n<svelte:head>\\n\\t<title>{title}</title>\\n</svelte:head>\\n\\n<div class=\\"w-full\\">\\n\\t{#if content}\\n\\t<div class=\\"content\\">\\n\\t\\t{@html marked(content)}\\n\\t</div>\\n\\t{/if}\\n\\t{#if jsonSettings?.withComments}\\n\\t<div class=\\"container\\">\\n\\t\\t<Comments host=\\"{pageHost}\\" slug=\\"{pageSlug}\\" />\\n\\t</div>\\n\\t{/if}\\n  {#if formLoading}\\n    <Loading />\\n  {/if}\\n\\t{#if form && !formLoading}\\n\\t\\t<div class=\\"container\\">\\n\\t\\t\\t<div class=\\"center-content\\">\\n\\t\\t\\t\\t<Form {form} on:submitForm={submitForm} />\\n\\t\\t\\t</div>\\n    {#if success}\\n    <span class=\\"text-green-500 text-center\\">\\n      Sended successfully\\n    </span>\\n    {/if}\\n    {#if $errors}\\n    <span class=\\"text-red-500 text-center\\">\\n      Error, try again\\n    </span>\\n    {/if}\\n  </div>\\n\\t{/if}\\n\\t{#if empty}\\n\\t\\t<div class=\\"m-auto w-full\\">\\n\\t\\t\\t<div class=\\"container flex items-center justify-center\\">\\n\\t\\t\\t\\t<span class=\\"text-center m-auto py-8 text-2xl\\">\\n\\t\\t\\t\\t\\t{empty}\\n\\t\\t\\t\\t</span>\\n\\t\\t\\t</div>\\n\\t\\t</div>\\n\\t{/if}\\n</div>\\n\\n<style>.content :global(h2){color:#000;font-size:1.6rem;font-weight:600}.content :global(p){font-size:1.2rem;text-align:justify}.content :global(pre){background-color:#f9f9f9;border-radius:2px;box-shadow:inset 1px 1px 5px rgba(0,0,0,.05);overflow-x:auto;padding:.5em}.content :global(pre) :global(code){background-color:transparent;padding:0}.content :global(ul){line-height:1.5}.content :global(li){font-size:1.2rem;margin:0 0 .5rem}</style>\\n"],"names":[],"mappings":"AAmIO,uBAAQ,CAAC,AAAQ,EAAE,AAAC,CAAC,MAAM,IAAI,CAAC,UAAU,MAAM,CAAC,YAAY,GAAG,CAAC,uBAAQ,CAAC,AAAQ,CAAC,AAAC,CAAC,UAAU,MAAM,CAAC,WAAW,OAAO,CAAC,uBAAQ,CAAC,AAAQ,GAAG,AAAC,CAAC,iBAAiB,OAAO,CAAC,cAAc,GAAG,CAAC,WAAW,KAAK,CAAC,GAAG,CAAC,GAAG,CAAC,GAAG,CAAC,KAAK,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,GAAG,CAAC,CAAC,WAAW,IAAI,CAAC,QAAQ,IAAI,CAAC,uBAAQ,CAAC,AAAQ,GAAG,AAAC,CAAC,AAAQ,IAAI,AAAC,CAAC,iBAAiB,WAAW,CAAC,QAAQ,CAAC,CAAC,uBAAQ,CAAC,AAAQ,EAAE,AAAC,CAAC,YAAY,GAAG,CAAC,uBAAQ,CAAC,AAAQ,EAAE,AAAC,CAAC,UAAU,MAAM,CAAC,OAAO,CAAC,CAAC,CAAC,CAAC,KAAK,CAAC"}`
+};
 var load$1 = async ({ page: page2 }) => {
+  const response = await get(`contents?slug=` + page2.params.page);
+  if (response && response.length) {
+    const result = response[0];
+    return {
+      props: {
+        content: result.content,
+        form: result.form ? Object.entries(result.form.fields) : null,
+        jsonSettings: result.json,
+        formAction: result.form ? result.form.action : null,
+        pageSlug: page2.params.page,
+        pageHost: page2.host,
+        empty: "",
+        success: false
+      }
+    };
+  }
+  return {
+    props: {
+      empty: "This page is empty",
+      pageSlug: page2.params.page,
+      pageHost: page2.host,
+      content: null,
+      form: null,
+      jsonSettings: null,
+      success: false
+    }
+  };
+};
+var U5Bpageu5D = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  var _a, _b;
+  let title;
+  let $errors, $$unsubscribe_errors;
+  $$unsubscribe_errors = subscribe(errors, (value) => $errors = value);
+  let { content = null } = $$props;
+  let { form = null } = $$props;
+  let { jsonSettings = null } = $$props;
+  let { formAction = "" } = $$props;
+  let { pageSlug = null } = $$props;
+  let { pageHost = null } = $$props;
+  let { empty: empty2 = null } = $$props;
+  let { success = false } = $$props;
+  let { formLoading = false } = $$props;
+  if ($$props.content === void 0 && $$bindings.content && content !== void 0)
+    $$bindings.content(content);
+  if ($$props.form === void 0 && $$bindings.form && form !== void 0)
+    $$bindings.form(form);
+  if ($$props.jsonSettings === void 0 && $$bindings.jsonSettings && jsonSettings !== void 0)
+    $$bindings.jsonSettings(jsonSettings);
+  if ($$props.formAction === void 0 && $$bindings.formAction && formAction !== void 0)
+    $$bindings.formAction(formAction);
+  if ($$props.pageSlug === void 0 && $$bindings.pageSlug && pageSlug !== void 0)
+    $$bindings.pageSlug(pageSlug);
+  if ($$props.pageHost === void 0 && $$bindings.pageHost && pageHost !== void 0)
+    $$bindings.pageHost(pageHost);
+  if ($$props.empty === void 0 && $$bindings.empty && empty2 !== void 0)
+    $$bindings.empty(empty2);
+  if ($$props.success === void 0 && $$bindings.success && success !== void 0)
+    $$bindings.success(success);
+  if ($$props.formLoading === void 0 && $$bindings.formLoading && formLoading !== void 0)
+    $$bindings.formLoading(formLoading);
+  $$result.css.add(css);
+  title = ((_b = (_a = pages.value) == null ? void 0 : _a.find((p) => p.slug === pageSlug)) == null ? void 0 : _b.title) || pageSlug;
+  $$unsubscribe_errors();
+  return `${$$result.head += `${$$result.title = `<title>${escape(title)}</title>`, ""}`, ""}
+
+<div class="${"w-full"}">${content ? `<div class="${"content svelte-1ea4xet"}"><!-- HTML_TAG_START -->${(0, import_marked.default)(content)}<!-- HTML_TAG_END --></div>` : ``}
+	${(jsonSettings == null ? void 0 : jsonSettings.withComments) ? `<div class="${"container"}">${validate_component(Comments, "Comments").$$render($$result, { host: pageHost, slug: pageSlug }, {}, {})}</div>` : ``}
+  ${formLoading ? `${validate_component(Loading, "Loading").$$render($$result, {}, {}, {})}` : ``}
+	${form && !formLoading ? `<div class="${"container"}"><div class="${"center-content"}">${validate_component(Form, "Form").$$render($$result, { form }, {}, {})}</div>
+    ${success ? `<span class="${"text-green-500 text-center"}">Sended successfully
+    </span>` : ``}
+    ${$errors ? `<span class="${"text-red-500 text-center"}">Error, try again
+    </span>` : ``}</div>` : ``}
+	${empty2 ? `<div class="${"m-auto w-full"}"><div class="${"container flex items-center justify-center"}"><span class="${"text-center m-auto py-8 text-2xl"}">${escape(empty2)}</span></div></div>` : ``}
+</div>`;
+});
+var index = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": U5Bpageu5D,
+  load: load$1
+});
+var load = async ({ page: page2 }) => {
   const pathPage = page2.path.split("/")[1];
   const response = await get(`contents?slug=` + (pathPage + "-" + page2.params.subpage));
   if (response && response.length) {
@@ -15918,94 +16000,6 @@ var _subpage_ = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": U5Bsubpageu5D,
-  load: load$1
-});
-var css = {
-  code: ".content.svelte-1ea4xet h2{color:#000;font-size:1.6rem;font-weight:600}.content.svelte-1ea4xet p{font-size:1.2rem;text-align:justify}.content.svelte-1ea4xet pre{background-color:#f9f9f9;border-radius:2px;box-shadow:inset 1px 1px 5px rgba(0,0,0,.05);overflow-x:auto;padding:.5em}.content.svelte-1ea4xet pre code{background-color:transparent;padding:0}.content.svelte-1ea4xet ul{line-height:1.5}.content.svelte-1ea4xet li{font-size:1.2rem;margin:0 0 .5rem}",
-  map: `{"version":3,"file":"[page].svelte","sources":["[page].svelte"],"sourcesContent":["<script context=\\"module\\">\\n\\timport { get } from '$lib/api';\\n\\n\\texport const load = async ({ page }) => {\\n\\t\\tconst response = await get(\`contents?slug=\` + page.params.page);\\n\\n\\t\\tif (response && response.length) {\\n\\t\\t\\tconst result = response[0];\\n\\n\\t\\t\\treturn {\\n\\t\\t\\t\\tprops: {\\n\\t\\t\\t\\t\\tcontent: result.content,\\n\\t\\t\\t\\t\\tform: result.form ? Object.entries(result.form.fields) : null,\\n\\t\\t\\t\\t\\tjsonSettings: result.json,\\n          formAction: result.form ? result.form.action : null,\\n\\t\\t\\t\\t\\tpageSlug: page.params.page,\\n\\t\\t\\t\\t\\tpageHost: page.host,\\n\\t\\t\\t\\t\\tempty: '',\\n          success: false\\n\\t\\t\\t\\t},\\n\\t\\t\\t\\tmaxage: 0\\n\\t\\t\\t};\\n\\t\\t}\\n\\n\\t\\treturn {\\n\\t\\t\\tprops: {\\n\\t\\t\\t\\tempty: 'This page is empty',\\n\\t\\t\\t\\tpageSlug: page.params.page,\\n\\t\\t\\t\\tpageHost: page.host,\\n\\t\\t\\t\\tcontent: null,\\n\\t\\t\\t\\tform: null,\\n\\t\\t\\t\\tjsonSettings: null,\\n        success: false\\n\\t\\t\\t}\\n\\t\\t};\\n\\t};\\n<\/script>\\n\\n<script>\\n\\timport { pages } from '$lib/store';\\n\\timport Form from '$lib/components/Form.svelte';\\n\\timport Comments from '$lib/components/Comments.svelte';\\n  import { errors, loading, formSubmit } from '$lib/store';\\n  import { filter, take, withLatestFrom } from 'rxjs';\\n  import { Loading } from 'attractions';\\n\\timport marked from 'marked';\\n\\n\\texport let content = null;\\n\\texport let form = null;\\n\\texport let jsonSettings = null;\\n  export let formAction = '';\\n\\texport let pageSlug = null;\\n\\texport let pageHost = null;\\n\\texport let empty = null;\\n  export let success = false;\\n  export let formLoading = false;\\n\\t$: title = pages.value?.find(p => p.slug === pageSlug)?.title || pageSlug;\\n\\n\\tasync function submitForm(event) {\\n\\t\\tconst data = {\\n\\t\\t\\t...event.detail\\n\\t\\t};\\n\\n    if (!formAction) {\\n      return;\\n    }\\n    \\n    formLoading = true;\\n\\n    formSubmit(formAction, data)\\n\\n    loading\\n\\t\\t\\t.pipe(\\n\\t\\t\\t\\tfilter((loading) => !loading),\\n\\t\\t\\t\\twithLatestFrom(errors),\\n\\t\\t\\t\\ttake(1)\\n\\t\\t\\t)\\n\\t\\t\\t.subscribe(([_loading, error]) => {\\n        formLoading = false;\\n\\t\\t\\t\\tif (!error) {\\n          success = true;\\n\\t\\t\\t\\t}\\n\\t\\t\\t});\\n\\t}\\n<\/script>\\n\\n<svelte:head>\\n\\t<title>{title}</title>\\n</svelte:head>\\n\\n<div class=\\"w-full\\">\\n\\t{#if content}\\n\\t<div class=\\"content\\">\\n\\t\\t{@html marked(content)}\\n\\t</div>\\n\\t{/if}\\n\\t{#if jsonSettings?.withComments}\\n\\t<div class=\\"container\\">\\n\\t\\t<Comments host=\\"{pageHost}\\" slug=\\"{pageSlug}\\" />\\n\\t</div>\\n\\t{/if}\\n  {#if formLoading}\\n    <Loading />\\n  {/if}\\n\\t{#if form && !formLoading}\\n\\t\\t<div class=\\"container\\">\\n\\t\\t\\t<div class=\\"center-content\\">\\n\\t\\t\\t\\t<Form {form} on:submitForm={submitForm} />\\n\\t\\t\\t</div>\\n    {#if success}\\n    <span class=\\"text-green-500 text-center\\">\\n      Sended successfully\\n    </span>\\n    {/if}\\n    {#if $errors}\\n    <span class=\\"text-red-500 text-center\\">\\n      Error, try again\\n    </span>\\n    {/if}\\n  </div>\\n\\t{/if}\\n\\t{#if empty}\\n\\t\\t<div class=\\"m-auto w-full\\">\\n\\t\\t\\t<div class=\\"container flex items-center justify-center\\">\\n\\t\\t\\t\\t<span class=\\"text-center m-auto py-8 text-2xl\\">\\n\\t\\t\\t\\t\\t{empty}\\n\\t\\t\\t\\t</span>\\n\\t\\t\\t</div>\\n\\t\\t</div>\\n\\t{/if}\\n</div>\\n\\n<style>.content :global(h2){color:#000;font-size:1.6rem;font-weight:600}.content :global(p){font-size:1.2rem;text-align:justify}.content :global(pre){background-color:#f9f9f9;border-radius:2px;box-shadow:inset 1px 1px 5px rgba(0,0,0,.05);overflow-x:auto;padding:.5em}.content :global(pre) :global(code){background-color:transparent;padding:0}.content :global(ul){line-height:1.5}.content :global(li){font-size:1.2rem;margin:0 0 .5rem}</style>\\n"],"names":[],"mappings":"AAoIO,uBAAQ,CAAC,AAAQ,EAAE,AAAC,CAAC,MAAM,IAAI,CAAC,UAAU,MAAM,CAAC,YAAY,GAAG,CAAC,uBAAQ,CAAC,AAAQ,CAAC,AAAC,CAAC,UAAU,MAAM,CAAC,WAAW,OAAO,CAAC,uBAAQ,CAAC,AAAQ,GAAG,AAAC,CAAC,iBAAiB,OAAO,CAAC,cAAc,GAAG,CAAC,WAAW,KAAK,CAAC,GAAG,CAAC,GAAG,CAAC,GAAG,CAAC,KAAK,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,GAAG,CAAC,CAAC,WAAW,IAAI,CAAC,QAAQ,IAAI,CAAC,uBAAQ,CAAC,AAAQ,GAAG,AAAC,CAAC,AAAQ,IAAI,AAAC,CAAC,iBAAiB,WAAW,CAAC,QAAQ,CAAC,CAAC,uBAAQ,CAAC,AAAQ,EAAE,AAAC,CAAC,YAAY,GAAG,CAAC,uBAAQ,CAAC,AAAQ,EAAE,AAAC,CAAC,UAAU,MAAM,CAAC,OAAO,CAAC,CAAC,CAAC,CAAC,KAAK,CAAC"}`
-};
-var load = async ({ page: page2 }) => {
-  const response = await get(`contents?slug=` + page2.params.page);
-  if (response && response.length) {
-    const result = response[0];
-    return {
-      props: {
-        content: result.content,
-        form: result.form ? Object.entries(result.form.fields) : null,
-        jsonSettings: result.json,
-        formAction: result.form ? result.form.action : null,
-        pageSlug: page2.params.page,
-        pageHost: page2.host,
-        empty: "",
-        success: false
-      },
-      maxage: 0
-    };
-  }
-  return {
-    props: {
-      empty: "This page is empty",
-      pageSlug: page2.params.page,
-      pageHost: page2.host,
-      content: null,
-      form: null,
-      jsonSettings: null,
-      success: false
-    }
-  };
-};
-var U5Bpageu5D = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  var _a, _b;
-  let title;
-  let $errors, $$unsubscribe_errors;
-  $$unsubscribe_errors = subscribe(errors, (value) => $errors = value);
-  let { content = null } = $$props;
-  let { form = null } = $$props;
-  let { jsonSettings = null } = $$props;
-  let { formAction = "" } = $$props;
-  let { pageSlug = null } = $$props;
-  let { pageHost = null } = $$props;
-  let { empty: empty2 = null } = $$props;
-  let { success = false } = $$props;
-  let { formLoading = false } = $$props;
-  if ($$props.content === void 0 && $$bindings.content && content !== void 0)
-    $$bindings.content(content);
-  if ($$props.form === void 0 && $$bindings.form && form !== void 0)
-    $$bindings.form(form);
-  if ($$props.jsonSettings === void 0 && $$bindings.jsonSettings && jsonSettings !== void 0)
-    $$bindings.jsonSettings(jsonSettings);
-  if ($$props.formAction === void 0 && $$bindings.formAction && formAction !== void 0)
-    $$bindings.formAction(formAction);
-  if ($$props.pageSlug === void 0 && $$bindings.pageSlug && pageSlug !== void 0)
-    $$bindings.pageSlug(pageSlug);
-  if ($$props.pageHost === void 0 && $$bindings.pageHost && pageHost !== void 0)
-    $$bindings.pageHost(pageHost);
-  if ($$props.empty === void 0 && $$bindings.empty && empty2 !== void 0)
-    $$bindings.empty(empty2);
-  if ($$props.success === void 0 && $$bindings.success && success !== void 0)
-    $$bindings.success(success);
-  if ($$props.formLoading === void 0 && $$bindings.formLoading && formLoading !== void 0)
-    $$bindings.formLoading(formLoading);
-  $$result.css.add(css);
-  title = ((_b = (_a = pages.value) == null ? void 0 : _a.find((p) => p.slug === pageSlug)) == null ? void 0 : _b.title) || pageSlug;
-  $$unsubscribe_errors();
-  return `${$$result.head += `${$$result.title = `<title>${escape(title)}</title>`, ""}`, ""}
-
-<div class="${"w-full"}">${content ? `<div class="${"content svelte-1ea4xet"}"><!-- HTML_TAG_START -->${(0, import_marked.default)(content)}<!-- HTML_TAG_END --></div>` : ``}
-	${(jsonSettings == null ? void 0 : jsonSettings.withComments) ? `<div class="${"container"}">${validate_component(Comments, "Comments").$$render($$result, { host: pageHost, slug: pageSlug }, {}, {})}</div>` : ``}
-  ${formLoading ? `${validate_component(Loading, "Loading").$$render($$result, {}, {}, {})}` : ``}
-	${form && !formLoading ? `<div class="${"container"}"><div class="${"center-content"}">${validate_component(Form, "Form").$$render($$result, { form }, {}, {})}</div>
-    ${success ? `<span class="${"text-green-500 text-center"}">Sended successfully
-    </span>` : ``}
-    ${$errors ? `<span class="${"text-red-500 text-center"}">Error, try again
-    </span>` : ``}</div>` : ``}
-	${empty2 ? `<div class="${"m-auto w-full"}"><div class="${"container flex items-center justify-center"}"><span class="${"text-center m-auto py-8 text-2xl"}">${escape(empty2)}</span></div></div>` : ``}
-</div>`;
-});
-var _page_ = /* @__PURE__ */ Object.freeze({
-  __proto__: null,
-  [Symbol.toStringTag]: "Module",
-  "default": U5Bpageu5D,
   load
 });
 

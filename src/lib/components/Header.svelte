@@ -61,20 +61,20 @@
 								<span>Menu</span> <span class="-mt-1 ml-1 flex">⌄</span>
 							</a>
 							<Dropdown right>
-								<div class="px-4 py-2">
+								<ul class="px-4 py-2">
 									{#each pagesInMenu as dPage}
 										<li class="nav-li mr-4" class:active={$page.path === '/' + dPage.url}>
 											<a class="nav-link" href="/{dPage.url}">{dPage.title}</a>
 										</li>
 									{/each}
-								</div>
+								</ul>
 							</Dropdown>
 						</DropdownShell>
 					</li>
 				{/if}
 				<li class="px-4">
 					<a href="{'#'}" on:click="{togleSidebar}">
-						<img src="../../static/menu.svg" alt="menu">
+						<svg fill="#000000" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="24px"><path d="M 2 5 L 2 7 L 22 7 L 22 5 L 2 5 z M 2 11 L 2 13 L 22 13 L 22 11 L 2 11 z M 2 17 L 2 19 L 22 19 L 22 17 L 2 17 z"/></svg>
 					</a>
 				</li>
 			</ul>
@@ -193,6 +193,7 @@
 		right: 0;
 		z-index: 1;
 		box-shadow: -2px 1px 1px rgba(0,0,0,0.1);
+		overflow-y: hidden;
 
 		&-header {
 			padding: 15px;

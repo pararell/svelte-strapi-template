@@ -1,5 +1,4 @@
 <script context="module">
-	import { get } from '$lib/api';
 
 	export const load = async ({ page }) => {
     const responsePages = await get(`pages`);
@@ -15,8 +14,7 @@
 				props: {
 					allPages: responsePages,
 					allCategories: responseCategories
-				},
-				maxage: 0
+				}
 			};
 		}
 
@@ -27,11 +25,12 @@
 </script>
 
 <script>
+	import "../app.css";
+	import { get } from '$lib/api';
 	import { onMount } from 'svelte';
-  import { Loading } from 'attractions';
   import { autoLogin, config, user, logout, pages, categories } from '$lib/store';
-	import "../app.scss";
-  import Header from '../lib/components/Header.svelte';
+  import Header from '$lib/components/Header.svelte';
+
   export let loaded = false;
 	export let sidebarOpen = false;
   export let allPages = [];
@@ -46,13 +45,6 @@
 	}
 </script>
 
-{#if !loaded}
-<div class="loader">
-	<Loading>
-</Loading></div>
-{/if}
-
-{#if loaded}
 <Header 
 	sidebarOpen="{sidebarOpen}" 
 	user="{$user}" 
@@ -61,19 +53,17 @@
 	on:logout="{logout}"
 	on:togglesidebar="{togleSidebar}"
 	/>
+
 	<main class:fixed="{sidebarOpen}">
 		<slot></slot>
   </main>
 
 	<footer></footer>
-{/if}
 
-<style lang="scss">
-
+<style>
 	.fixed {
 		position: fixed;
 		min-width: 100%;
 	}
-
 </style>
 

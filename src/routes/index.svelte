@@ -10,8 +10,7 @@
 			return {
 				props: {
 					content: result.content,
-				},
-				maxage: 0
+				}
 			};
 		}
 

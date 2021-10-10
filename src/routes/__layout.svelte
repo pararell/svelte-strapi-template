@@ -3,15 +3,18 @@
 
 	export const load = async ({ page }) => {
     const responsePages = await get(`pages`);
+		const responseCategories = await get(`categories`);
 		const responseConfig = await get(`config`);
 
-		if (responsePages && responseConfig) {
+		if (responsePages && responseConfig && responseCategories) {
       pages.next(responsePages)
 			config.next(responseConfig)
+			categories.next(responseCategories)
 
 			return {
 				props: {
-					allPages: responsePages
+					allPages: responsePages,
+					allCategories: responseCategories
 				},
 				maxage: 0
 			};
@@ -26,15 +29,21 @@
 <script>
 	import { onMount } from 'svelte';
   import { Loading } from 'attractions';
-  import { autoLogin, config, user, logout, pages } from '$lib/store';
+  import { autoLogin, config, user, logout, pages, categories } from '$lib/store';
 	import "../app.scss";
   import Header from '../lib/components/Header.svelte';
   export let loaded = false;
+	export let sidebarOpen = false;
   export let allPages = [];
+	export let allCategories = [];
 
 	onMount(() => {
 		loaded = autoLogin();
 	})
+
+	const togleSidebar = () => {
+		sidebarOpen = !sidebarOpen;
+	}
 </script>
 
 {#if !loaded}
@@ -44,11 +53,27 @@
 {/if}
 
 {#if loaded}
-<Header user="{$user}" pages="{allPages}" on:logout="{logout}"/>
-	<main>
+<Header 
+	sidebarOpen="{sidebarOpen}" 
+	user="{$user}" 
+	pages="{allPages}" 
+	categories="{allCategories}"
+	on:logout="{logout}"
+	on:togglesidebar="{togleSidebar}"
+	/>
+	<main class:fixed="{sidebarOpen}">
 		<slot></slot>
   </main>
 
 	<footer></footer>
 {/if}
+
+<style lang="scss">
+
+	.fixed {
+		position: fixed;
+		min-width: 100%;
+	}
+
+</style>
 

@@ -37,6 +37,10 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "categories": {
+      "via": "pages",
+      "collection": "category"
     }
   }
 }

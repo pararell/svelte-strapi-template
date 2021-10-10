@@ -38,6 +38,7 @@
   import { errors, loading, formSubmit } from '$lib/store';
   import { filter, take, withLatestFrom } from 'rxjs';
   import { Loading } from 'attractions';
+	import marked from 'marked';
 
 	export let content = null;
 	export let form = null;
@@ -82,7 +83,7 @@
 
 <div class="w-full">
 	{#if content}
-		{@html content}
+		{@html marked(content)}
 	{/if}
   {#if formLoading}
     <Loading />

@@ -26,38 +26,9 @@
 <script>
 	import { get } from '$lib/api';
   import marked from 'marked';
-	import { setDisqus, resetDisqus } from '$lib/utils';
-	import { config, disqusLoaded } from '$lib/store';
-	import { filter, map, mergeMap, take } from 'rxjs';
-	import { onMount } from 'svelte';
+	import Comments from '$lib/components/Comments.svelte';
 	export let blog;
 	export let page;
-
-	onMount(() => {
-		config
-			.pipe(
-				mergeMap((config) =>
-					disqusLoaded.pipe(
-						filter((disqusLoaded) => !disqusLoaded),
-						map(() => config)
-					)
-				),
-				filter((config) => config && config.disqusSrc),
-				take(1)
-			)
-			.subscribe((config) => {
-				setDisqus(config)
-					.pipe(take(1))
-					.subscribe(() => {
-						disqusLoaded.next(true);
-					});
-			});
-
-		disqusLoaded.pipe(filter(Boolean), take(1)).subscribe(() => {
-			resetDisqus(page);
-		});
-	});
-
 </script>
 
 <svelte:head>
@@ -74,10 +45,9 @@
 
 	<span class="date">{new Date(blog.created_at).toLocaleDateString()}</span>
 
-	<div id="disqus_thread" />
-{/if}
+	<Comments host="{page.host}" slug="{page.params.blog}" />
 
-
+	{/if}
 </div>
 
 <style>

@@ -6,6 +6,7 @@ const cookies = Cookie();
 export const user = new BehaviorSubject(null);
 export const config = new BehaviorSubject(null);
 export const pages = new BehaviorSubject([]);
+export const categories = new BehaviorSubject([]);
 export const token = new BehaviorSubject(false);
 export const disqusLoaded = new BehaviorSubject(false);
 export const loading = new BehaviorSubject(false);

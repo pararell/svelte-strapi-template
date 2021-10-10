@@ -4,14 +4,22 @@
 	import { DropdownShell, Dropdown } from 'attractions';
 	import { API_URL } from '../constants';
 	export let user;
+	export let sidebarOpen = false;
 	export let pages = [];
+	export let categories = [];
 	$: home = pages.find(p => p.slug === 'home') || {title: 'home'}
-	$: pagesInMenu  = pages.filter(p => p.slug !== 'home').sort((a,b) => a.position - b.position)
+	$: pagesInMenu  = pages.filter(p => p.slug !== 'home' && !p.categories.length).sort((a,b) => a.position - b.position)
 
 	const dispatch = createEventDispatcher();
+
 	const handleLogout = () => {
 		dispatch('logout');
 	};
+
+	const togleSidebar = () => {
+		dispatch('togglesidebar');
+	};
+
 </script>
 
 <nav class="nav">
@@ -64,10 +72,54 @@
 						</DropdownShell>
 					</li>
 				{/if}
+				<li class="px-4">
+					<a href="{'#'}" on:click="{togleSidebar}">
+						<img src="../../static/menu.svg" alt="menu">
+					</a>
+				</li>
 			</ul>
 		</div>
 	</div>
 </nav>
+{#if sidebarOpen}
+<div class="flex flex-col sidebar">
+
+	<div class="sidebar-header">
+		<a href="{'#'}" class="text-3xl" on:click="{togleSidebar}">&times;</a>
+	</div>
+
+	<div class="sidebar-content">
+		{#if categories.length}
+			{#each categories as category}
+				{#if category.pages.length}
+				<div class="pb-5">
+				<DropdownShell let:toggle>
+					<a href="{'#'}"
+						class="nav-link mr-4  ml-4 cursor-pointer flex items-center mt-0.5"
+						on:click={toggle}
+					>
+						<span>{category.Title}</span> <span class="-mt-1 ml-1 flex">⌄</span>
+					</a>
+					<Dropdown left>
+						<div class="px-4 py-2">
+							{#each category.pages as cPage}
+								<li class="nav-li mr-4" class:active={$page.path === '/' + cPage.url}>
+									<a class="nav-link" on:click="{togleSidebar}" href="/{cPage.url}">{cPage.title}</a>
+								</li>
+							{/each}
+						</div>
+					</Dropdown>
+				</DropdownShell>
+				</div>
+				{/if}
+			{/each}
+		{/if}
+
+	</div>
+
+</div>
+{/if}
+
 
 <style lang="scss">
 	.nav {
@@ -128,6 +180,27 @@
 
 		.mobile {
 			display: none;
+		}
+	}
+
+	.sidebar {
+		background: #fff;
+		max-height: 100%;
+		height: calc(100vh - 50px);
+		min-width: 60vw;
+		position: absolute;
+		top: 51px;
+		right: 0;
+		z-index: 1;
+		box-shadow: -2px 1px 1px rgba(0,0,0,0.1);
+
+		&-header {
+			padding: 15px;
+			cursor: pointer;
+		}
+
+		&-content {
+			padding: 15px;
 		}
 	}
 </style>

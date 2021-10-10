@@ -28,6 +28,11 @@
     "i_18_n_locale": {
       "plugin": "i18n",
       "model": "locale"
+    },
+    "pages": {
+      "collection": "page",
+      "via": "categories",
+      "dominant": true
     }
   }
 }

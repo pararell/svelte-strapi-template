@@ -30,8 +30,8 @@
       "model": "locale"
     },
     "pages": {
-      "collection": "page",
       "via": "categories",
+      "collection": "page",
       "dominant": true
     }
   }

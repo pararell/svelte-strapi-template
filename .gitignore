@@ -77,4 +77,5 @@ typings/
 .fusebox/
 
 .svelte-kit/
+.svelte-kit/dev/
 .netlify/

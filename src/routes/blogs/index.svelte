@@ -25,6 +25,9 @@
 <script>
   export let blogs;
 	export let category;
+	$: blogsToShow = blogs
+		.filter(blog => category ? blog.categories.includes(category) : true)
+		.sort((a,b) => new Date(b.Created) - new Date(a.Created));
 	import { API_URL } from '../../lib/constants';
 </script>
 
@@ -34,23 +37,23 @@
 
 <div class="container max-w-6xl">
 	{#if blogs}
-	{#each blogs.filter(blog => category ? blog.categories.includes(category) : true) as blog (blog.id)}
+	{#each blogsToShow as blog (blog.id)}
 		<a class="card" rel="prefetch" href="/blogs/{blog.slug}">
 			<div class="card-left">
 				<div class="card-left-top">
 					<div class="thumbnail">
-						<img class="card-left-img" alt="{blog.slug}" src={ API_URL + blog.Image[0].url} loading="lazy" />
+						<img class="card-left-img" alt="{blog.slug}" src={ API_URL + blog.Image[0]?.url} loading="lazy" />
 					</div>
 				</div>
 				<div class="card-left-bottom">
-					<p class="date">{new Date(blog.created_at).toLocaleDateString()} </p>
+					<p class="date">{new Date(blog.Created).toLocaleDateString()} </p>
 				</div>
 			</div>
 
 			<div class="card-right">
-				<h2>{blog.Title}</h2>
+				<h2 class="text-2xl font-bold">{blog.Title}</h2>
 				<div class="separator" />
-				<p>
+				<p class="text-xl">
 					{blog.Description}
 				</p>
 			</div>

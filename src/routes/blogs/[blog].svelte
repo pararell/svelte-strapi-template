@@ -43,7 +43,7 @@
 		{@html marked(blog.Content)}
 	</div>
 
-	<span class="date">{new Date(blog.created_at).toLocaleDateString()}</span>
+	<span class="date">{new Date(blog.Created).toLocaleDateString()}</span>
 
 	<Comments host="{page.host}" slug="{page.params.blog}" />
 

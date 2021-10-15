@@ -76,7 +76,7 @@
 						</DropdownShell>
 					</li>
 				{/if}
-				<li class="px-4">
+				<li class="px-4 max-h-6">
 					<button on:click={togleSidebar}>
 						<svg
 							fill="#000000"
@@ -111,7 +111,7 @@
 								<div slot="handle">
 									{#if category.pages.length}
 										<button
-											class="nav-link mr-4 ml-1 cursor-pointer flex items-center mt-0.5"
+											class="nav-link mx-auto cursor-pointer flex items-center mt-0.5"
 											on:click={toggle}
 										>
 											<h3 class="text-2xl">{category.Title}</h3>
@@ -122,9 +122,9 @@
 								{#if category.pages.length}
 									<div class="px-4 py-1">
 										{#each category.pages as cPage}
-											<li class="nav-li mr-4 my-1" class:active={$page.path === '/' + cPage.url}>
+											<li class="nav-li flex items-center my-1" class:active={$page.path === '/' + cPage.url}>
 												<a
-													class="sidebar-link text-base"
+													class="sidebar-link text-base mx-auto"
 													on:click={togleSidebar}
 													href="/{cPage.url}">{cPage.title}</a
 												>
@@ -158,6 +158,7 @@
 
 		&-list {
 			display: flex;
+			align-items: center;
 		}
 
 		&-li {
@@ -175,6 +176,7 @@
 			text-decoration: none;
 			color: #000;
 			font-size: 0.875rem;
+			line-height: 1.25rem;
 		}
 
 		&-logo {
@@ -211,11 +213,12 @@
 		height: calc(100vh - 51px);
 		min-width: 300px;
 		position: fixed;
-		top: 51px;
+		top: 50px;
 		right: 0;
 		z-index: 1;
 		box-shadow: -2px 1px 1px rgba(0, 0, 0, 0.1);
-		overflow-y: hidden;
+		border-top: 1px solid rgba(0, 0, 0, 0.1);
+		overflow-y: auto;
 
 		&-header {
 			padding: 15px 15px 0 15px;

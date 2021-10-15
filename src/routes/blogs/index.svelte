@@ -133,9 +133,9 @@
 	p {
 		text-align: justify;
 		padding-top: 10px;
-		font-size: 0.95rem;
-		line-height: 150%;
 		color: var(--text-color);
+		margin-block-start: 1em;
+    margin-block-end: 1em;
 	}
 
 	.date {

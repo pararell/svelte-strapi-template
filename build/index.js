@@ -539,6 +539,9 @@ var require$$0 = {
   "application/a2l": {
     source: "iana"
   },
+  "application/ace+cbor": {
+    source: "iana"
+  },
   "application/activemessage": {
     source: "iana"
   },
@@ -611,6 +614,9 @@ var require$$0 = {
     extensions: [
       "aw"
     ]
+  },
+  "application/at+jwt": {
+    source: "iana"
   },
   "application/atf": {
     source: "iana"
@@ -1066,6 +1072,12 @@ var require$$0 = {
   "application/expect-ct-report+json": {
     source: "iana",
     compressible: true
+  },
+  "application/express": {
+    source: "iana",
+    extensions: [
+      "exp"
+    ]
   },
   "application/fastinfoset": {
     source: "iana"
@@ -1780,6 +1792,9 @@ var require$$0 = {
       "oxps"
     ]
   },
+  "application/p21": {
+    source: "iana"
+  },
   "application/p21+zip": {
     source: "iana",
     compressible: false
@@ -2480,6 +2495,9 @@ var require$$0 = {
     compressible: true
   },
   "application/tnauthlist": {
+    source: "iana"
+  },
+  "application/token-introspection+jwt": {
     source: "iana"
   },
   "application/toml": {
@@ -7599,6 +7617,21 @@ var require$$0 = {
       "iso"
     ]
   },
+  "application/x-iwork-keynote-sffkey": {
+    extensions: [
+      "key"
+    ]
+  },
+  "application/x-iwork-numbers-sffnumbers": {
+    extensions: [
+      "numbers"
+    ]
+  },
+  "application/x-iwork-pages-sffpages": {
+    extensions: [
+      "pages"
+    ]
+  },
   "application/x-java-archive-diff": {
     source: "nginx",
     extensions: [
@@ -9785,6 +9818,16 @@ var require$$0 = {
       "obj"
     ]
   },
+  "model/step": {
+    source: "iana"
+  },
+  "model/step+xml": {
+    source: "iana",
+    compressible: true,
+    extensions: [
+      "stpx"
+    ]
+  },
   "model/step+zip": {
     source: "iana",
     compressible: false,
@@ -10711,6 +10754,9 @@ var require$$0 = {
       "jpm",
       "jpgm"
     ]
+  },
+  "video/jxsv": {
+    source: "iana"
   },
   "video/mj2": {
     source: "iana",
@@ -12173,7 +12219,8 @@ function parse2(req) {
   return req._parsedUrl = { pathname, search, query, raw };
 }
 function onError(err, req, res) {
-  let code = res.statusCode = err.code || err.status || 500;
+  let code = typeof err.status === "number" && err.status;
+  code = res.statusCode = code && code >= 100 ? code : 500;
   if (typeof err === "string" || Buffer.isBuffer(err))
     res.end(err);
   else
@@ -12187,7 +12234,7 @@ var Polka = class extends Trouter {
     this.server = opts.server;
     this.handler = this.handler.bind(this);
     this.onError = opts.onError || onError;
-    this.onNoMatch = opts.onNoMatch || this.onError.bind(null, { code: 404 });
+    this.onNoMatch = opts.onNoMatch || this.onError.bind(null, { status: 404 });
     this.attach = (req, res) => setImmediate(this.handler, req, res);
   }
   use(base, ...fns) {

@@ -37,7 +37,6 @@
 
 <div class="container max-w-6xl">
   {#if blog}
-	<h1 class="text-center text-4xl mt-8 pb-4">{blog.Title}</h1>
 
 	<div class="content">
 		{@html marked(blog.Content)}

@@ -2,7 +2,9 @@
 	import { page } from '$app/stores';
 	import { createEventDispatcher } from 'svelte';
 	import { DropdownShell, Dropdown, Accordion, AccordionSection } from 'attractions';
-	import { ChevronDownIcon } from 'svelte-feather-icons';
+	import { ChevronDownIcon, XIcon } from 'svelte-feather-icons';
+	import { fly} from "svelte/transition";
+	import { sineIn } from "svelte/easing";
 	import { API_URL } from '../constants';
 	export let user;
 	export let sidebarOpen = false;
@@ -56,13 +58,12 @@
 				{#if pages.length}
 					<li class="nav-li mobile">
 						<DropdownShell let:toggle>
-							<a
-								href={'#'}
+							<button
 								class="nav-link mr-4  ml-4 cursor-pointer flex items-center mt-0.5"
 								on:click={toggle}
 							>
-								<span>Menu</span> <span class="-mt-1 ml-1 flex">⌄</span>
-							</a>
+								Menu <ChevronDownIcon size="1x" class="ml dropdown-chevron" />
+							</button>
 							<Dropdown right>
 								<ul class="px-4 py-2">
 									{#each pagesInMenu as dPage}
@@ -76,7 +77,7 @@
 					</li>
 				{/if}
 				<li class="px-4">
-					<a href={'#'} on:click={togleSidebar}>
+					<button on:click={togleSidebar}>
 						<svg
 							fill="#000000"
 							xmlns="http://www.w3.org/2000/svg"
@@ -87,49 +88,52 @@
 								d="M 2 5 L 2 7 L 22 7 L 22 5 L 2 5 z M 2 11 L 2 13 L 22 13 L 22 11 L 2 11 z M 2 17 L 2 19 L 22 19 L 22 17 L 2 17 z"
 							/></svg
 						>
-					</a>
+					</button>
 				</li>
 			</ul>
 		</div>
 	</div>
 </nav>
 {#if sidebarOpen}
-	<div class="flex flex-col sidebar">
+	<div class="flex flex-col sidebar" transition:fly={{x: 300, duration: 300, opacity: 1, easing: sineIn}}>
 		<div class="sidebar-header">
-			<a href={'#'} class="text-3xl" on:click={togleSidebar}>&times;</a>
+			<button class="text-2xl" on:click={togleSidebar}>
+				<XIcon size="1x" class="text-gray-400" />
+			</button>
 		</div>
 
 		<div class="sidebar-content">
 			{#if categories.length}
 				<Accordion let:closeOtherPanels>
 					{#each categories as category}
-					<div class="mb-4">
-						<AccordionSection on:panel-open={closeOtherPanels} let:toggle>
-							<div slot="handle">
-								{#if category.pages.length}
-									<a
-										href={'#'}
-										class="nav-link mr-4  ml-4 cursor-pointer flex items-center mt-0.5"
-										on:click={toggle}
-									>
-										<h3 class="text-2xl">{category.Title}</h3>
-										<ChevronDownIcon size="20" class="ml accordion-chevron" />
-									</a>
-								{/if}
-							</div>
-							{#if category.pages.length}
-								<div class="px-4 py-1">
-									{#each category.pages as cPage}
-										<li class="nav-li mr-4 my-1" class:active={$page.path === '/' + cPage.url}>
-											<a class="sidebar-link text-base" on:click={togleSidebar} href="/{cPage.url}"
-												>{cPage.title}</a
-											>
-										</li>
-									{/each}
+						<div class="mb-4">
+							<AccordionSection on:panel-open={closeOtherPanels} let:toggle>
+								<div slot="handle">
+									{#if category.pages.length}
+										<button
+											class="nav-link mr-4 ml-1 cursor-pointer flex items-center mt-0.5"
+											on:click={toggle}
+										>
+											<h3 class="text-2xl">{category.Title}</h3>
+											<ChevronDownIcon size="2x" class="ml accordion-chevron" />
+										</button>
+									{/if}
 								</div>
-							{/if}
-						</AccordionSection>
-					</div>
+								{#if category.pages.length}
+									<div class="px-4 py-1">
+										{#each category.pages as cPage}
+											<li class="nav-li mr-4 my-1" class:active={$page.path === '/' + cPage.url}>
+												<a
+													class="sidebar-link text-base"
+													on:click={togleSidebar}
+													href="/{cPage.url}">{cPage.title}</a
+												>
+											</li>
+										{/each}
+									</div>
+								{/if}
+							</AccordionSection>
+						</div>
 					{/each}
 				</Accordion>
 			{/if}
@@ -139,10 +143,11 @@
 
 <style lang="scss">
 	.nav {
+		background: var(--primary-color);
 		display: flex;
 		align-items: center;
 		height: 50px;
-		box-shadow: 0 1px 2px 0 rgba(40, 42, 49, 0.16);
+		box-shadow: -1px 1px 1px 0px #0000001a;
 		width: 100%;
 
 		&-content {
@@ -159,7 +164,8 @@
 			list-style: none;
 
 			&.active {
-				.nav-link, .sidebar-link {
+				.nav-link,
+				.sidebar-link {
 					font-weight: bold;
 				}
 			}
@@ -200,11 +206,11 @@
 	}
 
 	.sidebar {
-		background: #fff;
+		background: var(--primary-color);
 		max-height: 100%;
 		height: calc(100vh - 51px);
 		min-width: 300px;
-		position: absolute;
+		position: fixed;
 		top: 51px;
 		right: 0;
 		z-index: 1;

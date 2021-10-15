@@ -4,6 +4,9 @@ const config = {
 		"./src/**/*.{html,js,svelte,ts}",
 	],
 	theme: {
+		fontFamily: {
+      sans: ['Nunito', 'sans-serif']
+    },
 		extend: {},
 	},
 	plugins: [],

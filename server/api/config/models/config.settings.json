@@ -2,7 +2,8 @@
   "kind": "singleType",
   "collectionName": "configs",
   "info": {
-    "name": "config"
+    "name": "config",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -22,6 +23,15 @@
         }
       },
       "type": "string"
+    },
+    "primaryColor": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "default": "#ffffff"
     }
   }
 }

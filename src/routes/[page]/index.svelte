@@ -53,7 +53,7 @@
 	export let empty = null;
   export let success = false;
   export let formLoading = false;
-	$: title = pages.value?.find(p => p.slug === pageSlug)?.title || pageSlug;
+	$: title = pages.value?.find(p => p.slug === pageSlug)?.metaTitle || pageSlug;
 
 	async function submitForm(event) {
 		const data = {

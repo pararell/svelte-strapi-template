@@ -44,6 +44,9 @@
     },
     "position": {
       "type": "integer"
+    },
+    "metaTitle": {
+      "type": "string"
     }
   }
 }

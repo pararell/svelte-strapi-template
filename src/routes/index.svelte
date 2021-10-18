@@ -9,7 +9,7 @@
 
 			return {
 				props: {
-					content: result.content,
+					content: result.content
 				}
 			};
 		}
@@ -23,11 +23,13 @@
 </script>
 
 <script>
+	import { pages } from '$lib/store';
   export let content = null;
+	$: title = pages.value?.find(p => p.slug === 'home')?.metaTitle || 'Home';
 </script>
 
 <svelte:head>
-	<title>Home</title>
+	<title>{title}</title>
 </svelte:head>
 
 <div class="w-full">

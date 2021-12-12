@@ -1,18 +1,18 @@
 <script context="module">
 	export const load = async ({ page }) => {
-		const responsePages = await get(`pages`);
-		const responseCategories = await get(`categories`);
+		const responsePages = await get(`pages?populate=*`);
+		const responseCategories = await get(`categories?populate=*`);
 		const responseConfig = await get(`config`);
 
 		if (responsePages && responseConfig && responseCategories) {
-			pages.next(responsePages);
-			config.next(responseConfig);
-			categories.next(responseCategories);
+			pages.next(responsePages.data);
+			config.next(responseConfig.data);
+			categories.next(responseCategories.data);
 
 			return {
 				props: {
-					allPages: responsePages,
-					allCategories: responseCategories
+					allPages: responsePages.data,
+					allCategories: responseCategories.data
 				}
 			};
 		}
@@ -34,7 +34,7 @@
 	export let sidebarOpen = false;
 	export let allPages = [];
 	export let allCategories = [];
-	$: primaryColor = '--primary-color:' + (config.value?.primaryColor || '#fff');
+	$: primaryColor = '--primary-color:' + (config.value?.attributes?.primaryColor || '#fff');
 
 	onMount(() => {
 		loaded = autoLogin();

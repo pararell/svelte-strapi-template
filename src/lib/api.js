@@ -42,17 +42,22 @@ const send = async ({ method, path, params, data, token }) => {
 }
 
 export const get = (path, params, token) => {
-	return send({ method: 'GET', path, params, token })
+	const apiPath = 'api/' + path;
+	console.log(apiPath, 'apiPath')
+	return send({ method: 'GET', path: apiPath, params, token })
 }
 
 export const del = (path) => {
-	return send({ method: 'DELETE', path })
+	const apiPath = 'api/' + path;
+	return send({ method: 'DELETE', path: apiPath })
 }
 
 export const post = (path, data) => {
-	return send({ method: 'POST', path, data })
+	const apiPath = 'api/' + path;
+	return send({ method: 'POST', path: apiPath, data })
 }
 
 export const patch = (path, data) => {
-	return send({ method: 'PATCH', path, data })
+	const apiPath = 'api/' + path;
+	return send({ method: 'PATCH', path: apiPath, data })
 }

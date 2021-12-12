@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "forms",
+  "info": {
+    "singularName": "form",
+    "pluralName": "forms",
+    "displayName": "Form"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fields": {
+      "type": "json"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "email": {
+      "type": "email"
+    },
+    "action": {
+      "type": "string"
+    }
+  }
+}

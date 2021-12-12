@@ -2,14 +2,14 @@
 	import { get } from '$lib/api';
 
 	export const load = async ({ page }) => {
-		const response = await get(`contents?slug=home`);
+		const response = await get(`contents?filters[slug]=home&populate=*`);
 
-		if (response && response.length) {
-			const result = response[0];
+		if (response && response.data) {
+			const result = response.data[0]?.attributes;
 
 			return {
 				props: {
-					content: result.content
+					content: result?.content
 				}
 			};
 		}
@@ -25,7 +25,7 @@
 <script>
 	import { pages } from '$lib/store';
   export let content = null;
-	$: title = pages.value?.find(p => p.slug === 'home')?.metaTitle || 'Home';
+	$: title = pages.value?.find(p => p.attributes?.slug === 'home')?.metaTitle || 'Home';
 </script>
 
 <svelte:head>

@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "configs",
+  "info": {
+    "singularName": "config",
+    "pluralName": "configs",
+    "displayName": "Config"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "disqusSrc": {
+      "type": "string"
+    },
+    "primaryColor": {
+      "type": "string"
+    }
+  }
+}

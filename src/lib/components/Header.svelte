@@ -10,10 +10,10 @@
 	export let sidebarOpen = false;
 	export let pages = [];
 	export let categories = [];
-	$: home = pages.find((p) => p.slug === 'home') || { title: 'home' };
+	$: home = pages.find((p) => p.attributes?.slug === 'home') || { title: 'home' };
 	$: pagesInMenu = pages
-		.filter((p) => p.slug !== 'home' && !p.categories.length)
-		.sort((a, b) => a.position - b.position);
+		.filter((p) => p.attributes && p.attributes.slug !== 'home' && !p.attributes.categories?.data?.length)
+		.sort((a, b) => a.attributes.position - b.attributes.position);
 
 	const dispatch = createEventDispatcher();
 
@@ -29,18 +29,18 @@
 <nav class="nav">
 	<div class="container">
 		<div class="nav-content">
-			{#if home?.image && home.image.length}
+			{#if home.attributes?.image && home.attributes.image.length}
 				<a class="nav-link nav-logo font-semibold" href="/">
-					<img class="nav-logo-img" src={API_URL + home.image[0].url} alt={home.title} />
+					<img class="nav-logo-img" src={API_URL + home.attributes.image[0].url} alt={home.attributes.title} />
 				</a>
 			{:else}
-				<a class="nav-link nav-logo font-semibold" href="/">{home.title}</a>
+				<a class="nav-link nav-logo font-semibold" href="/">{home.attributes.title}</a>
 			{/if}
 			<ul class="nav-list">
 				{#if pages.length}
 					{#each pagesInMenu as dPage}
-						<li class="nav-li mr-4 desktop" class:active={$page.path === '/' + dPage.url}>
-							<a class="nav-link" href="/{dPage.url}">{dPage.title}</a>
+						<li class="nav-li mr-4 desktop" class:active={$page.path === '/' + dPage.attributes?.url}>
+							<a class="nav-link" href="/{dPage.attributes?.url}">{dPage.attributes?.title}</a>
 						</li>
 					{/each}
 				{/if}
@@ -67,8 +67,8 @@
 							<Dropdown right>
 								<ul class="px-4 py-2">
 									{#each pagesInMenu as dPage}
-										<li class="nav-li mr-4" class:active={$page.path === '/' + dPage.url}>
-											<a class="nav-link" href="/{dPage.url}">{dPage.title}</a>
+										<li class="nav-li mr-4" class:active={$page.path === '/' + dPage.attributes?.url}>
+											<a class="nav-link" href="/{dPage.attributes?.url}">{dPage.attributes?.title}</a>
 										</li>
 									{/each}
 								</ul>
@@ -107,26 +107,26 @@
 				<Accordion let:closeOtherPanels>
 					{#each categories as category}
 						<div class="mb-4">
-							<AccordionSection on:panel-open={closeOtherPanels} let:toggle>
-								<div slot="handle">
-									{#if category.pages.length}
+							<AccordionSection on:panel-open={closeOtherPanels}>
+								<div slot="handle" let:toggle>
+									{#if category.attributes?.pages?.data?.length}
 										<button
 											class="nav-link mx-auto cursor-pointer flex items-center mt-0.5"
 											on:click={toggle}
 										>
-											<h3 class="text-2xl">{category.Title}</h3>
+											<h3 class="text-2xl">{category.attributes?.Title}</h3>
 											<ChevronDownIcon size="2x" class="ml accordion-chevron" />
 										</button>
 									{/if}
 								</div>
-								{#if category.pages.length}
+								{#if category.attributes?.pages?.data?.length}
 									<div class="px-4 py-1">
-										{#each category.pages as cPage}
-											<li class="nav-li flex items-center my-1" class:active={$page.path === '/' + cPage.url}>
+										{#each category.attributes.pages.data as cPage}
+											<li class="nav-li flex items-center my-1" class:active={$page.path === '/' + cPage.attributes?.url}>
 												<a
 													class="sidebar-link text-base mx-auto"
 													on:click={togleSidebar}
-													href="/{cPage.url}">{cPage.title}</a
+													href="/{cPage.attributes?.url}">{cPage.attributes?.title}</a
 												>
 											</li>
 										{/each}

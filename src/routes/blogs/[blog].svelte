@@ -1,7 +1,7 @@
 <script context="module">
 
 	export const load = async ({ page }) => {
-		const response = await get(`blogs?slug=${page.params.blog}`);
+		const response = await get(`blogs?filters[slug]=${page.params.blog}`);
 
 		if (response && response.length) {
 
@@ -25,7 +25,7 @@
 
 <script>
 	import { get } from '$lib/api';
-  import marked from 'marked';
+  import { marked } from 'marked';
 	import Comments from '$lib/components/Comments.svelte';
 	export let blog;
 	export let page;

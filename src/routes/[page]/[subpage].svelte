@@ -3,7 +3,7 @@
 
 	export const load = async ({ page }) => {
     const pathPage = page.path.split('/')[1];
-		const response = await get(`contents?slug=` + (pathPage + '-' + page.params.subpage));
+		const response = await get(`contents?filters[slug]=` + (pathPage + '-' + page.params.subpage + '&populate=*'));
 
 		if (response && response.length) {
 			const result = response[0];
@@ -38,7 +38,7 @@
   import { errors, loading, formSubmit } from '$lib/store';
   import { filter, take, withLatestFrom } from 'rxjs';
   import { Loading } from 'attractions';
-	import marked from 'marked';
+	import { marked } from 'marked';
 
 	export let content = null;
 	export let form = null;
@@ -47,7 +47,7 @@
 	export let empty = null;
   export let success = false;
   export let formLoading = false;
-	$: title = pages.value?.find(p => p.slug === pageSlug)?.metaTitle || pageSlug;
+	$: title = pages.value?.find(p => p.attributes?.slug === pageSlug)?.attributes?.metaTitle || pageSlug;
 
 	async function submitForm(event) {
 		const data = {

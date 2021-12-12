@@ -2,12 +2,12 @@
 	import { get } from '$lib/api';
 
 	export const load = async ({ fetch, page }) => {
-		const resForm = await get('forms?slug=login');
+		const resForm = await get('forms?filters[slug]=login');
 
-		if (resForm) {
+		if (resForm && resForm.data) {
 			return {
 				props: {
-					loginForm: Object.entries(resForm[0].fields)
+					loginForm: Object.entries(resForm.data[0]?.attributes?.fields)
 				},
 				maxage: 0
 			};

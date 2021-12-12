@@ -2,17 +2,17 @@
 	import { get } from '$lib/api';
 
 	export const load = async ({ page }) => {
-		const response = await get(`contents?slug=` + page.params.page);
+		const response = await get(`contents?filters[slug]=` + page.params.page + '&populate=*');
 
-		if (response && response.length) {
-			const result = response[0];
+		if (response && response.data) {
+			const result = response.data[0]?.attributes || {};
 
 			return {
 				props: {
 					content: result.content,
-					form: result.form ? Object.entries(result.form.fields) : null,
+					form: result.form ? Object.entries(result.form?.data?.attributes.fields) : null,
 					jsonSettings: result.json,
-          formAction: result.form ? result.form.action : null,
+          formAction: result.form ? result.form?.data?.attributes.action : null,
 					pageSlug: page.params.page,
 					pageHost: page.host,
 					empty: '',
@@ -42,7 +42,7 @@
   import { errors, loading, formSubmit } from '$lib/store';
   import { filter, take, withLatestFrom } from 'rxjs';
   import { Loading } from 'attractions';
-	import marked from 'marked';
+	import { marked } from 'marked';
 
 	export let content = null;
 	export let form = null;
@@ -53,7 +53,7 @@
 	export let empty = null;
   export let success = false;
   export let formLoading = false;
-	$: title = pages.value?.find(p => p.slug === pageSlug)?.metaTitle || pageSlug;
+	$: title = pages.value?.find(p => p.attributes?.slug === pageSlug)?.attributes?.metaTitle || pageSlug;
 
 	async function submitForm(event) {
 		const data = {

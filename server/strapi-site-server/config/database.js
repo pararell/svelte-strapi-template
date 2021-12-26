@@ -9,3 +9,22 @@ module.exports = ({ env }) => ({
     useNullAsDefault: true,
   },
 });
+
+// module.exports = ({ env }) => ({
+//   connection: {
+//     client: 'mysql',
+//     connection: {
+//       host: env('DATABASE_HOST', 'localhost'),
+//       port: env('DATABASE_PORT', 3306),
+//       database: env('DATABASE_NAME'),
+//       user: env('DATABASE_USER'),
+//       password: env('DATABASE_PASSWORD'),
+//       options: {
+//         useNullAsDefault: true,
+//       }
+//     },
+//     debug: false,
+//   },
+// });
+
+

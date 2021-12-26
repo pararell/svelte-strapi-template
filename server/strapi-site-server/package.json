@@ -9,11 +9,12 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
   "dependencies": {
-    "@strapi/strapi": "4.0.0",
-    "@strapi/plugin-users-permissions": "4.0.0",
-    "@strapi/plugin-i18n": "4.0.0",
+    "@strapi/design-system": "^0.0.1-alpha.71",
+    "@strapi/plugin-i18n": "4.0.2",
+    "@strapi/plugin-users-permissions": "4.0.2",
+    "@strapi/provider-email-nodemailer": "4.0.2",
+    "@strapi/strapi": "4.0.2",
     "sqlite3": "5.0.2"
   },
   "author": {
@@ -25,6 +26,9 @@
   "engines": {
     "node": ">=12.x.x <=16.x.x",
     "npm": ">=6.0.0"
+  },
+  "resolutions": {
+    "webpack": "5.65.0"
   },
   "license": "MIT"
 }
